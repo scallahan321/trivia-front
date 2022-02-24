@@ -6,14 +6,11 @@ import axios from 'axios'
 function Game(){
 
   const [current, setCurrent] = useState(0);
+  const [lastQuestion, setLastQuestion] = useState(false)
   const [questions, setQuestions] = useState([])
-  //const [activeGame, SetActiveGame] = useState(true)
+  const [numCorrect, setNumCorrect] = useState(0)
   const [isLoading, setIsLoading] = useState(true);
 
-  function questionList(resp) {
-    Object.keys(resp).map(key => {
-    return resp[key]; })
-  }
       
   function getEvents() {
       setIsLoading(true);
@@ -42,19 +39,32 @@ function Game(){
   function handleClick(selected){
     if (checkAnswer(selected)) {
         alert('Correct answer!')
+        setNumCorrect(numCorrect + 1)
     }
     else {
       alert('Wrong answer')
     }
     if (current<9){
-    setCurrent(current + 1)
+      setCurrent(current + 1)
     }
+    else if (current===9) {
+      setLastQuestion(true)
+    }
+    
   }
   
   return (
     
-    <div>
-      <DisplayGame current={current} questions={questions} isLoading={isLoading} handleClick={handleClick}/>
+    <div className='outer-container'>
+      
+        <DisplayGame current={current} questions={questions} isLoading={isLoading} handleClick={handleClick}/>
+
+        <div>
+        {lastQuestion===true && <h1>you scored {numCorrect} out of 10</h1>}
+        </div>
+      
+        
+      
     </div>
 
   )

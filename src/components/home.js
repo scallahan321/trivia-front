@@ -1,21 +1,17 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 
 function Home() {
     
-
-
-    /*let navigate = useNavigate(); 
-    const routeChange = () =>{ 
-       // sessionStorage.setItem('questions', data)
-        let path = '/game'; 
-        navigate(path);
-    }*/
-
     return(
+        
     <div>
+        <div>
+      <Link to="/game">Game</Link>
+      </div>
+
     <p>This is the Home Page</p>
     
     </div>

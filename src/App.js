@@ -1,8 +1,7 @@
 import './App.css';
-import Game from './components/game';
+import Game from './components/game_logic';
 import Home from './components/home';
-import {BrowserRouter as Router, Routes, Route, Redirect, Link} from "react-router-dom";
-import apiCall from './components/api_call';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 
 
@@ -12,10 +11,7 @@ function App(){
       
 
     <Router>
-      <div>
-      <Link to="/game">Game</Link>
-      </div>
-
+      
       <Routes>
           
           <Route path="/" element={<Home/>}/>
@@ -27,3 +23,7 @@ function App(){
 }
 
 export default App
+
+/*<div>
+      <Link to="/game">Game</Link>
+      </div>*/
