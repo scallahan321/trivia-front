@@ -50,8 +50,7 @@ function Game(){
     else if (current===9) {
       setLastQuestion(true)
     }
-    
-  }
+}
   
   return (
     
