@@ -10,6 +10,7 @@ function Home() {
     <div>
         <div>
       <Link to="/game">Game</Link>
+      <Link to="/login">Login</Link>
       </div>
 
     <p>This is the Home Page</p>

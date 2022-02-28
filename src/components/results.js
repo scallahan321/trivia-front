@@ -5,7 +5,7 @@ import { useEffect } from "react";
 // display results on screen and post to back end
 function Results(props) {
 
-    const stats = {"user": 1, "questions_attempted": 10, "correct_answers": props.numCorrect}
+    const stats = {"user": 2, "questions_attempted": 10, "correct_answers": props.numCorrect}
 
     function putRequest() {
         axios.put('http://localhost:8000/UpdateStats', stats)
