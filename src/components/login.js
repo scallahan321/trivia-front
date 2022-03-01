@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 
 const signInSchema = Yup.object().shape({
@@ -21,13 +22,16 @@ const initialValues = {
 
 const LoginForm = () => {
   return (
+    <div>
+      <Link to="/test-token">test token</Link>
+    
     <Formik
       initialValues={initialValues}
       validationSchema={signInSchema}
       onSubmit={(values) => {
-        const url = "http://localhost:8000/login/"
-        console.log(values)
-        axios.post(url, values)
+        const url = "http://localhost:8000/api-token-auth/"
+        axios.post(url, values).then
+        ((response) => sessionStorage.setItem("token", response.data.token))
         .catch(function (error) {
           console.log(error);
        });
@@ -82,6 +86,7 @@ const LoginForm = () => {
         );
       }}
     </Formik>
+    </div>
   );
 };
 

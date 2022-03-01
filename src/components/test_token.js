@@ -1,16 +1,20 @@
 import React, {useEffect}from 'react';
 import axios from 'axios';
+import Logout from './logout';
 
 
 function TestToken() {
     
 
-    function get_token() {
-        const data = {"username":"Kiki", "password": "CatBoySlim"}
-        const url = "http://localhost:8000/api-token-auth/"
-        axios.post(url, data)
+    function pass_token() {
+        //const data = {"username":"KyloRen", "password": "CatBoySlim"}
+        const url = "http://localhost:8000/hello"
+        const token = sessionStorage.getItem("token")
+        const headers = {"Authorization": ""}
+        headers.Authorization = "Token ".concat(token)
+        axios.get(url,{headers})
         .then(function (response) {
-          alert(response.data.token);
+          console.log(response.data);
         })
         .catch(function (error) {
           console.log(error);
@@ -18,10 +22,18 @@ function TestToken() {
     }
 
     useEffect(() => {
-        get_token()
+        pass_token()
     })
 
-    return (<p>testing token</p>)
+    return (
+    <div>
+      <p>testing token</p>
+      <Logout />
+
+    </div>
+ 
+    
+    )
 
 }
 
