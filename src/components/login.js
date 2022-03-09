@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import {Link} from "react-router-dom";
 
 
 const signInSchema = Yup.object().shape({
@@ -21,6 +21,29 @@ const initialValues = {
 };
 
 const LoginForm = () => {
+
+  const navigate = useNavigate();
+
+  const [userExists, setUserExists] = useState(true);
+  //const [loggedIn, setLoggedIn] = useState(false)
+
+  // useEffect( () => {
+  //   if (sessionStorage.getItem('token')) {
+  //    setLoggedIn(true)
+  //   }
+  //   if (loggedIn===true) {
+  //     navigate('/user-profile')
+  //   }
+  // },[loggedIn, navigate])
+
+  useEffect( () => {
+    if (sessionStorage.getItem('loggedIn')==='true') {
+     navigate('/user-profile')
+    }
+
+  },[navigate])
+
+
   return (
     <div>
       <Link to="/test-token">test token</Link>
@@ -28,15 +51,23 @@ const LoginForm = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={signInSchema}
+      
       onSubmit={(values) => {
         const url = "http://localhost:8000/api-token-auth/"
         axios.post(url, values).then
-        ((response) => sessionStorage.setItem("token", response.data.token))
+        ((response) => {
+        sessionStorage.setItem("username", values.username)
+        sessionStorage.setItem("token", response.data.token)
+        sessionStorage.setItem("loggedIn", 'true')
+        navigate('/user-profile')
+        })
         .catch(function (error) {
+          setUserExists(false)
           console.log(error);
        });
 
       }}
+
     >
       {(formik) => {
         const { errors, touched, isValid, dirty } = formik;
@@ -86,6 +117,13 @@ const LoginForm = () => {
         );
       }}
     </Formik>
+
+    {userExists ? <p></p> : 
+    <div>
+    <p>User not found. Please click the link to register.</p>
+    <Link to="/register">Register</Link>
+    </div>}
+    
     </div>
   );
 };

@@ -5,17 +5,21 @@ import axios from "axios";
 function Logout() {
 
     const onSubmit = () => {
-        //sessionStorage.clear();
-        //console.log("session storage should be cleared")
-        //data is hardcoded for now. eventually save to session storage along with token
-        const data = {"username":"KyloRen", "password": "CatBoySlim"}
-        const url = "http://localhost:8000/logout"
+        const user = sessionStorage.getItem('username')
+        const data = {'username': user}
         const token = sessionStorage.getItem("token")
+        const url = "http://localhost:8000/logout"
         const headers = {"Authorization": ""}
         headers.Authorization = "Token ".concat(token)
-        axios.post(url, {data}, {headers})
+
+        sessionStorage.removeItem('token')
+        sessionStorage.removeItem('username')
+        sessionStorage.removeItem('loggedIn')
+
+        axios.post(url, data, {headers})
         .then(function (response) {
           console.log(response.data);
+          
         })
         .catch(function (error) {
           console.log(error);

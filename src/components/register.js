@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -26,15 +26,17 @@ const initialValues = {
 
 
 const RegisterForm = () => {
+  const [userExists, setUserExists] = useState(false);
   const navigate = useNavigate()
 
   return (
+    <div>
     <Formik
       initialValues={initialValues}
       validationSchema={registerSchema}
       onSubmit={(values) => {
-        const url = "http://localhost:8000/register/"
-        //console.log(values)
+        const url = "http://localhost:8000/register"
+       
         axios.post(url, values).then
         ((response) => {
           if (response.status === 201){
@@ -42,7 +44,7 @@ const RegisterForm = () => {
           }
         })
         .catch(function (error) {
-          console.log(error);
+          setUserExists(true)
        });
 
       }}
@@ -104,13 +106,18 @@ const RegisterForm = () => {
                 className={!(dirty && isValid) ? "disabled-btn" : ""}
                 disabled={!(dirty && isValid)}
               >
-                Sign In
+                Sign Up
               </button>
             </Form>
           </div>
         );
       }}
     </Formik>
+
+    {userExists ? <p>That name is already in use. Try a different one</p> : <p></p>}
+    
+    </div>
+
   );
 };
 
