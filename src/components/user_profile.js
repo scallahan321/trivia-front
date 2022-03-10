@@ -1,5 +1,11 @@
 import React, {useState, useEffect} from "react";
+import { useNavigate } from 'react-router-dom'
 import axios from "axios";
+import Leaderboard from "./leaderboard";
+//import '../App.css';
+import {Col, Row} from 'react-bootstrap'
+import Container from 'react-bootstrap/Container';
+import Navbar from "./navbar";
 
 
 
@@ -7,30 +13,49 @@ function UserProfile() {
 
     const [stats, setStats] = useState({})
     const username = sessionStorage.getItem('username')
+    const loggedIn = sessionStorage.getItem('loggedIn')
+    const navigate = useNavigate()
+    const percent_correct = stats.correct_answers / stats.questions_attempted
 
     useEffect( () => {
-        const token = sessionStorage.getItem('token')
-        const url = "http://localhost:8000/viewuserstats"
-        const headers = {"Authorization": ""}
-        headers.Authorization = "Token ".concat(token)
-        axios.get(url, {headers})
-        .then(function (response) {
+        if (loggedIn !== null) {
+          const token = sessionStorage.getItem('token')
+          const url = "http://localhost:8000/viewuserstats"
+          const headers = {"Authorization": ""}
+          headers.Authorization = "Token ".concat(token)
+          axios.get(url, {headers})
+          .then(function (response) {
           setStats(response.data);
-        })
-        .catch(function (error) {
+        }).catch(function (error) {
           console.log(error);
        });
-    }, [])
+        }
+        else {
+          navigate('/')
+        }
+        
+    }, [navigate, loggedIn])
 
        
     return(
+        
         <div>
+          <Navbar />
 
-        <h1>{username}</h1>
-        <h1>{stats.questions_attempted}</h1>
-        <h1>{stats.correct_answers}</h1>
+          <Container>
+          <Row>
+            <Col>
+              <h3>{username} stats:</h3>
+              <p>Questions answered: {stats.questions_attempted}</p>
+              <p>Correct answers: {stats.correct_answers}</p>
+              <p>Percent correct: {percent_correct}</p>
+            </Col>
+            <Col>
+              <Leaderboard />
+            </Col>
 
-
+          </Row>
+        </Container>
         </div>
         
         

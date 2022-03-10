@@ -41,7 +41,7 @@ function Game(){
   useEffect(()=>{
         
         if (category===null){
-          navigate('/setup')
+          navigate('/game-setup')
         }
         getQuestions({category})
       },[category, navigate])

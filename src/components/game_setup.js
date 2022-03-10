@@ -1,6 +1,7 @@
 import Form from 'react-bootstrap/Form'
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
+import Navbar from './navbar';
 
 
 
@@ -37,40 +38,16 @@ function GameSetup() {
 
 
     return (
+          
             <div>
-                <Link to="/game" state={selected}>Play Game</Link>
+                <Navbar />
+                <Link to="/game" state={selected}>Start Game</Link>
                 <Form.Select onChange={e => setSelected(e.target.value)} >
                    <option>Select Category</option>
                    {categories.map((item) => <option key = {item.label} value={item.value}>{item.label}</option>)}
                </Form.Select>
                </div>
             )
-        
-
-    // function handleClick() {
-    //     setReady(true)
-    // }
-
-    // if (!ready){
-    //     return (
-    //         <div>
-    //         <Button style={{display:"block"}} size="small" variant="outline-primary" onClick={handleClick} >play game</Button> 
-    //        <Form.Select onChange={e => setSelected(e.target.value)} >
-    //            <option>Select Category</option>
-    //            {categories.map((item) => <option key = {item.label} value={item.value}>{item.label}</option>)}
-    //        </Form.Select>
-    //        </div>
-    //     )
-    // }
-
-    // else {
-
-    //     return (
-    //         <Game category = {selected}/>
-    //     )
-
-    // }
-  
 
 }
 

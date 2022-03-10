@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -27,7 +27,14 @@ const initialValues = {
 
 const RegisterForm = () => {
   const [userExists, setUserExists] = useState(false);
+  const loggedIn = sessionStorage.getItem('loggedIn')
   const navigate = useNavigate()
+
+  useEffect( () => {
+      if (loggedIn !== null) {
+        navigate('/user-profile')
+      }
+  }, [loggedIn, navigate])
 
   return (
     <div>

@@ -36,7 +36,7 @@ const LoginForm = () => {
 
   return (
     <div>
-      <Link to="/test-token">test token</Link>
+     
     
     <Formik
       initialValues={initialValues}
@@ -56,18 +56,22 @@ const LoginForm = () => {
           console.log(error);
        });
 
-      }}
+      }}>
 
-    >
       {(formik) => {
         const { errors, touched, isValid, dirty } = formik;
         return (
           <div className="container">
-            <h1>Sign in to continue</h1>
-            <Form>
-              <div className="form-row">
-                <label htmlFor="username">Username</label>
+            <h5>Sign in to play</h5>
+
+            {userExists ? <p style={{visibility:'hidden', fontSize: '14px'}}>not found. Register below</p> : 
+            <p style={{visibility:'visible', color:'red', fontSize: '14px'}}>User not found. Register below</p>}
+
+            <Form style={{marginTop: '30px'}} >
+              <div className="form-row" style = {{display:"flex", marginRight:"auto"}}>
+                <label style={{marginRight:"10px", flex:"1"}} htmlFor="username">Username </label>
                 <Field
+                  style={{flex:'2'}}
                   type="username"
                   name="username"
                   id="username"
@@ -75,12 +79,17 @@ const LoginForm = () => {
                     errors.username && touched.username ? "input-error" : null
                   }
                 />
-                <ErrorMessage name="username" component="span" className="error" />
+                <div style={{fontSize:'14px', color:'red'}}>
+                  <ErrorMessage name="username" component="span" className="error" />
+                  </div>
+                
               </div>
+              <br></br>
 
-              <div className="form-row">
-                <label htmlFor="password">Password</label>
+              <div className="form-row" style = {{display:"flex", marginRight:"auto"}}>
+                <label style={{marginRight:"10px", flex:"1"}} htmlFor="password">Password</label>
                 <Field
+                  style={{flex:'2'}}
                   type="password"
                   name="password"
                   id="password"
@@ -94,8 +103,9 @@ const LoginForm = () => {
                   className="error"
                 />
               </div>
-
+                
               <button
+                style={{marginTop:'30px'}}
                 type="submit"
                 className={!(dirty && isValid) ? "disabled-btn" : ""}
                 disabled={!(dirty && isValid)}
@@ -106,13 +116,14 @@ const LoginForm = () => {
           </div>
         );
       }}
+      
     </Formik>
 
-    {userExists ? <p></p> : 
-    <div>
-    <p>User not found. Please click the link to register.</p>
-    <Link to="/register">Register</Link>
-    </div>}
+    <div style={{marginTop:'20px'}}><Link to="/register">Register</Link> </div>
+    
+    
+   
+    
     
     </div>
   );
