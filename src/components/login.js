@@ -25,16 +25,6 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const [userExists, setUserExists] = useState(true);
-  //const [loggedIn, setLoggedIn] = useState(false)
-
-  // useEffect( () => {
-  //   if (sessionStorage.getItem('token')) {
-  //    setLoggedIn(true)
-  //   }
-  //   if (loggedIn===true) {
-  //     navigate('/user-profile')
-  //   }
-  // },[loggedIn, navigate])
 
   useEffect( () => {
     if (sessionStorage.getItem('loggedIn')==='true') {

@@ -8,15 +8,6 @@ function UserProfile() {
     const [stats, setStats] = useState({})
     const username = sessionStorage.getItem('username')
 
-
-//     axios.get(url, {headers})
-//     .then(function (response) {
-//       setStats(response.data);
-//     })
-//     .catch(function (error) {
-//       console.log(error);
-//    });
-
     useEffect( () => {
         const token = sessionStorage.getItem('token')
         const url = "http://localhost:8000/viewuserstats"

@@ -2,10 +2,17 @@ import '../App.css';
 import DisplayGame from './game_display';
 import Results from './results';
 import React, {useEffect, useState} from 'react';
+import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+
 
 function Game(){
 
+  const location = useLocation()
+  const category = location.state
+  
+
+  //const category = props.category
   const [current, setCurrent] = useState(0);
   const [lastQuestion, setLastQuestion] = useState(false)
   const [questions, setQuestions] = useState([])
@@ -13,10 +20,11 @@ function Game(){
   const [isLoading, setIsLoading] = useState(true);
   const [isCorrect, setIsCorrect] = useState('');
 
+  
       
-  function getEvents() {
+  function getQuestions(category) {
       setIsLoading(true);
-      axios.get("http://localhost:8000/questions")
+      axios.post("http://localhost:8000/questions", category)
         .then(response => response.data)
         .then((data) => {
           const list = []
@@ -28,9 +36,15 @@ function Game(){
         })
         }
 
+  const navigate = useNavigate()
+
   useEffect(()=>{
-      getEvents()
-      },[])
+        
+        if (category===null){
+          navigate('/setup')
+        }
+        getQuestions({category})
+      },[category, navigate])
   
   function checkAnswer(answer) {
     if (questions[current][answer] === questions[current].correct) {
@@ -54,7 +68,8 @@ function Game(){
     else if (current===9) {
       setLastQuestion(true)
     }
-}
+} 
+
   
   if (!lastQuestion) {
     return (
