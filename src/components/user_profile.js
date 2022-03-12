@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 import Leaderboard from "./leaderboard";
-//import '../App.css';
+import '../App.css';
 import {Col, Row} from 'react-bootstrap'
 import Container from 'react-bootstrap/Container';
 import Navbar from "./navbar";
@@ -38,11 +38,14 @@ function UserProfile() {
 
        
     return(
-        
-        <div>
-          <Navbar />
-
-          <Container>
+         
+          <Container className="vh-100">
+          <Row>
+            <Navbar />
+          </Row>
+          <Row>
+            <h2 id="welcome-message" className="text-primary">Hello {username}</h2>
+          </Row>
           <Row>
             <Col>
               <h3>{username} stats:</h3>
@@ -56,7 +59,7 @@ function UserProfile() {
 
           </Row>
         </Container>
-        </div>
+        
         
         
     )

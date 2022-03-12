@@ -1,36 +1,42 @@
-import React from "react";
+import React, {useState} from "react";
 import { Card, Col, Row } from "react-bootstrap"
 import Container from 'react-bootstrap/Container';
-import LoginForm from "./login";
+import LoginForm from "./login_form";
 import '../App.css';
-
-
+import RegisterForm from "./register_form";
 
 
 function FrontPage() {
+
+    const [registerView, setRegisterView] = useState(false)
     
     return(
      
-        <Container className="vh-100">
-              <Row style={{marginTop: "10%", marginBottom: "20%"}}>
-                  <Col style={{textAlign:"center"}}>
-                    <div style={{paddingTop:'15%', paddingBottom:'10%'}}>
-                    <h4 style={{color:'blue'}}>Welcome to Sean's trivia game</h4>
-                    </div>
-                    
-                  </Col>
-                  <Col style={{textAlign:"center"}}>
-                  <Card bg = {'light'} style = {{ width: '24rem', height: '20rem'}} text = {"dark"} >
-                    <Card.Body>
-                      <LoginForm />
-                      
-                    </Card.Body>
-                  </Card>
-                      
-                  </Col>
-              </Row>
+      <Container className="vh-100">
+        <Row>
 
-          </Container>
+        </Row>
+        <Row className="front-page-container-row">
+            <Col className="front-page-container-col">
+              <div id="front-page-welcome-message">
+              <h3 className="text-primary">Welcome to Sean's trivia game</h3>
+              </div>
+              
+            </Col>
+            <Col className="front-page-container-col">
+            <Card style={{borderRadius: '8px', boxShadow: '1px 1px #D3D3D3'}} bg = {'light'} className="front-page-card" text = {"secondary"} >
+              <Card.Body>
+                {!registerView ? <LoginForm setRegisterView = {setRegisterView}/> : 
+                  <RegisterForm setRegisterView = {setRegisterView} />
+                }
+                
+              </Card.Body>
+            </Card>
+                
+            </Col>
+        </Row>
+
+      </Container>
           
     
     ) 

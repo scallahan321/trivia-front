@@ -1,3 +1,5 @@
+
+/* general things */
 .App {
   text-align: center;
 }
@@ -23,8 +25,82 @@
 }
 
 .main {
-  background-color: 	#F8F8F8;
+  background-image: linear-gradient(to bottom right, 	#F8F8F8 ,	#E8E8E8);
+  /* background-color: 	#E8E8E8!important; */
 }
+
+
+/* front page login/register form things */
+
+.error-message {
+  color: red;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.error-message-hidden {
+  font-size: 1rem;
+  visibility: hidden;
+  text-align: center;
+  width: 100%;
+}
+
+
+.front-page-container-row {
+  margin-top: 10% !important;
+  margin-bottom: 20% !important;
+}
+
+.front-page-container-col {
+  text-align: center !important;
+}
+
+#front-page-welcome-message {
+  text-align: center;
+  padding-top: 20% !important;
+  padding-bottom: 20% !important;
+  
+}
+
+.front-page-card {
+  width: 24rem;
+  height: 28rem;
+  
+}
+
+
+.form-component {
+  margin-top: 5% !important;
+  
+}
+
+.form-row {
+  height: 4rem;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#form-submit-button {
+  width: 80%;
+  display: block;
+  margin-top: .5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*user profile/home things */
+
+#welcome-message {
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 5%;
+ 
+}
+
+/* game display things */
 
 .btn-big {
   width: 200px;
@@ -66,6 +142,9 @@
   width:90%;
   height:90%;
 }
+
+
+/* user home page things */
 
 .user_stats {
   display: inline-block;
