@@ -49,7 +49,7 @@ function LoginForm(props) {
             sessionStorage.setItem("username", values.username);
             sessionStorage.setItem("token", response.data.token);
             sessionStorage.setItem("loggedIn", 'true');
-            navigate('/user-profile');
+            navigate('/home');
           })
             .catch(function (error) {
               setUserExists(false);
@@ -64,12 +64,12 @@ function LoginForm(props) {
             <div className="container">
               <h4 style={{ textAlign: 'center' }}>Sign in to play</h4>
 
-              {userExists ? <p style={{ visibility: 'hidden', fontSize: '14px' }}>not found. Register below</p> :
-                <p style={{ visibility: 'visible', color: 'red', fontSize: '14px' }}>User not found. Register below</p>}
+              {userExists ? <p className="error-message-hidden">User not found. Register below</p> :
+                <p className="error-message">User not found. Register below</p>}
 
-              <Form style={{ marginTop: '5%' }}>
-                <div className="form-row" style={{ height: "4rem", marginBottom: '5%', marginLeft: 'auto', marginRight: 'auto' }}>
-                  {/* <label style={{width:'26%'}} htmlFor="username">Username </label> */}
+              <Form className="form-component">
+                <div className="form-row">
+                  
                   <Field
                     style={{ position: 'relative', height: '2.5rem', width: '15rem', marginRight: 'auto', marginLeft: 'auto' }}
                     type="username"
@@ -77,15 +77,11 @@ function LoginForm(props) {
                     placeholder="Username"
                     id="username"
                     className={errors.username && touched.username ? "input-error" : null} />
-                  <div style={{ width: '100%', textAlign: 'center', fontSize: '1rem', color: 'red' }}>
-                    <ErrorMessage name="username" component="span" className="error" />
-                  </div>
-
+                
+                  <ErrorMessage name="username" component="span" className="error-message" />
                 </div>
-                {/* <br></br> */}
 
-                <div className="form-row" style={{ height: "4rem", marginBottom: '5%', marginRight: 'auto', marginLeft: 'auto' }}>
-                  {/* <label style={{width:'25%'}} htmlFor="password">Password</label> */}
+                <div className="form-row">
                   <Field
                     style={{ position: 'relative', height: "2.5rem", width: '15rem', marginRight: 'auto', marginLeft: 'auto' }}
                     type="password"
@@ -93,28 +89,30 @@ function LoginForm(props) {
                     placeholder="Password"
                     id="password"
                     className={errors.password && touched.password ? "input-error" : null} />
-                  <div style={{ width: '100%', textAlign: 'center', fontSize: '1rem', color: 'red' }}>
-                    <ErrorMessage name="password" component="span" className="error" />
-                  </div>
+                  
+                  <ErrorMessage name="password" component="span" className="error-message" />
+                
                 </div>
 
-                {/* <button
-                          type="submit"
-                          className={!(dirty && isValid) ? "disabled-btn" : ""}
-                          disabled={!(dirty && isValid)}
-                        >
-                          Sign In
-                        </button> */}
+                <Button 
+                  style = {{display:'block', width:'80%', marginTop:'.5rem', marginRight:'auto', marginLeft: 'auto'}}
+                  type="submit" 
+                  className={!(dirty && isValid) ? "disabled-btn" : ""} 
+                  disabled={!(dirty && isValid)} 
+                  size="lg" 
+                  variant="primary"> 
+                  Sign in 
+                </Button>
 
-                <Button style={{display:'block', marginTop:'1rem', marginLeft:'auto', marginRight:'auto', width:'80%'}} type="submit" className={!(dirty && isValid) ? "disabled-btn" : ""} disabled={!(dirty && isValid)} size="lg" variant="primary"> Sign in </Button>
-                <div style={{height:'1px', border: '.5px solid #D3D3D3', marginTop:'1.5rem', marginBottom:'1.5rem'}}>
-                </div>
+                <div style={{height:'1px', border: '.5px solid #D3D3D3', marginTop:'1.5rem', marginBottom:'1.5rem'}}></div>
+
                 <Button  
-                  style={{display:'block', width:'80%', marginTop:'.5rem', marginLeft:'auto', marginRight:'auto'}} 
-                  size="lg" variant="outline-primary" 
-                  onClick = { () => props.setRegisterView(true)}
-                  > Register 
-                  </Button>
+                  style = {{display:'block', width:'80%', marginTop:'.5rem', marginRight:'auto', marginLeft: 'auto'}}
+                  size="lg" 
+                  variant="outline-primary" 
+                  onClick = { () => props.setRegisterView(true)}> 
+                  Register 
+                </Button>
                 
               </Form>
             </div>
@@ -122,14 +120,6 @@ function LoginForm(props) {
         } }
 
       </Formik>
-
-      {/* <div style={{ marginTop: '20px' }}><Link to="/register">Register</Link> </div> */}
-      
-
-
-
-
-
     </div>
   );
 }

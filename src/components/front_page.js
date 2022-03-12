@@ -24,7 +24,7 @@ function FrontPage() {
               
             </Col>
             <Col className="front-page-container-col">
-            <Card style={{borderRadius: '8px', boxShadow: '1px 1px #D3D3D3'}} bg = {'light'} className="front-page-card" text = {"secondary"} >
+            <Card bg = {'light'} className="front-page-card" text = {"secondary"} >
               <Card.Body>
                 {!registerView ? <LoginForm setRegisterView = {setRegisterView}/> : 
                   <RegisterForm setRegisterView = {setRegisterView} />

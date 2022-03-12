@@ -16,16 +16,16 @@ function App(){
  return(
    <div className="main">
       <Router>
-        {/* <div id='main'></div> */}
+        
           <Routes>
               <Route path = "/game-setup" element={<GameSetup />}> </Route>
               <Route path = "/game" element={<Game />}> </Route>
               <Route path = "/logout" element={<Logout />}> </Route>
-              <Route path = "/user-profile" element={<UserProfile />}> </Route>
+              <Route path = "/home" element={<UserProfile />}> </Route>
               <Route path = "/" element={<FrontPage />}> </Route> 
             
           </Routes>
-        {/* <div className='main'></div> */}
+        
       </Router>
     </div>
   

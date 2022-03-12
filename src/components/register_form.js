@@ -54,7 +54,7 @@ function RegisterForm(props) {
                 sessionStorage.setItem("username", values.username);
                 sessionStorage.setItem("token", response.data.token);
                 sessionStorage.setItem("loggedIn", 'true');
-                navigate('/user-profile');
+                navigate('/home');
               })
                 .catch(function (error) {
                   setUserExists(false);
@@ -125,7 +125,7 @@ function RegisterForm(props) {
                 </div>
 
                 <Button 
-                  id="form-submit-button" 
+                  style = {{display:'block', width:'80%', marginTop:'.5rem', marginRight:'auto', marginLeft: 'auto'}}
                   type="submit" 
                   className={!(dirty && isValid) ? "disabled-btn" : ""} 
                   disabled={!(dirty && isValid)} 

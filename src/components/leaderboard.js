@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, {useEffect, useState} from 'react';
 import Spinner from 'react-bootstrap/Spinner'
+import '../App.css';
+
 
 function Leaderboard() {
 
@@ -24,21 +26,23 @@ function Leaderboard() {
 
 
     return (
+
         <div>
             {isLoading ? <Spinner animation="border" role="status"></Spinner> :
-            
-            <div>
-            <h1>Leaderboard</h1>
-            <ol>
-                <li>{leaders.first}</li>
-                <li>{leaders.second}</li>
-                <li>{leaders.third}</li>
-                <li>{leaders.fourth}</li>
-                <li>{leaders.fifth}</li>
-            </ol>
-            </div>
-            }
+                <div>
+                    <h3 style={{textAlign:'center', marginBottom:'2rem'}}>Leaderboard</h3>
+                    <ol >
+                        <li className='leaderboard-list'>{leaders.first}</li>
+                        <li className='leaderboard-list'>{leaders.second}</li>
+                        <li className='leaderboard-list'>{leaders.third}</li>
+                        <li className='leaderboard-list'>{leaders.fourth}</li>
+                        <li className='leaderboard-list'>{leaders.fifth}</li>
+                    </ol>
+                </div>
+                }
         </div>
+            
+        
         
     )
 }

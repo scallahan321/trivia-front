@@ -11,8 +11,6 @@ function Game(){
   const location = useLocation()
   const category = location.state
   
-
-  //const category = props.category
   const [current, setCurrent] = useState(0);
   const [lastQuestion, setLastQuestion] = useState(false)
   const [questions, setQuestions] = useState([])
@@ -41,7 +39,7 @@ function Game(){
   useEffect(()=>{
         
         if (category===null){
-          navigate('/game-setup')
+          navigate('/home')
         }
         getQuestions({category})
       },[category, navigate])
@@ -74,8 +72,9 @@ function Game(){
   if (!lastQuestion) {
     return (
     
-      <div className='outer-container'>
-        
+      // <div className='outer-container'>
+      <div className='main'>
+          
           <DisplayGame current={current} questions={questions} isLoading={isLoading} handleClick={handleClick}/>
           <h1>{isCorrect}</h1>
   
