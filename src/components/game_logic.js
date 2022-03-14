@@ -96,7 +96,7 @@ function Game(){
 
   else {
     return (
-      <Results numCorrect={numCorrect} results = {results}/>
+      <Results numCorrect={numCorrect} results ={results}/>
     )
     // navigate('/results', {state: numCorrect})
   }  

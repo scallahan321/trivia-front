@@ -20,9 +20,11 @@ function Results(props) {
     const stats = {"questions_attempted": 10, "correct_answers": props.numCorrect}
 
     function putRequest() {
+        console.log(stats)
         axios.put('http://localhost:8000/updatestats', stats, {headers})
        .then(function (response) {
          console.log(response);
+        
        })
        .catch(function (error) {
          console.log(error);
@@ -46,8 +48,6 @@ function Results(props) {
                     <div id="result-container">
                       <DetailResults results={props.results}/>
                     </div>
-                    
-
                     <Button  
                       style = {{display:'block', width:'50%', marginTop:'1.5rem', marginRight:'auto', marginLeft: 'auto'}}
                       size="lg" 
