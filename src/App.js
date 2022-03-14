@@ -8,6 +8,7 @@ import UserProfile from './components/user_profile';
 import GameSetup from './components/game_setup';
 import Results from './components/results';
 import React from 'react';
+import DetailResults from './components/detail_results';
 
 
 function App(){
@@ -25,6 +26,7 @@ function App(){
               <Route path = "/home" element={<UserProfile />}> </Route>
               <Route path = "/" element={<FrontPage />}> </Route> 
               <Route path = "/results" element={<Results />}> </Route>
+              <Route path = "/detailresults" element={<DetailResults />}></Route>
             
           </Routes>
         

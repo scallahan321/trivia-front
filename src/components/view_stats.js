@@ -6,7 +6,7 @@ import Spinner from 'react-bootstrap/Spinner'
 
 function ViewStats() {
     const [stats, setStats] = useState({})
-    const percent_correct = stats.correct_answers / stats.questions_attempted
+    const percent_correct = (stats.correct_answers / stats.questions_attempted).toFixed(2)
     const [isLoading, setIsLoading] = useState(true)
 
     function getStats() {

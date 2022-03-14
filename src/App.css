@@ -168,14 +168,22 @@
   box-shadow: 1px 1px #D3D3D3;
 }
 
-#results-card {
-  width: 24rem;
-  height: 22rem;
-  margin-top: 1rem;
+
+.result-li {
+  margin-bottom: 1rem;
+}
+
+.result-p {
+  display: inline-block;
+}
+
+#result-container {
+  margin-top: 4rem;
+  overflow: scroll;
   margin-right: auto;
   margin-left: auto;
-  border-radius: 8px;
-  box-shadow: 1px 1px #D3D3D3;
+  height: 20rem;
+  width: 40rem;
 }
 
 .question-prompt {

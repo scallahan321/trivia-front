@@ -15,8 +15,9 @@ function Game(){
   const [lastQuestion, setLastQuestion] = useState(false)
   const [questions, setQuestions] = useState([])
   const [numCorrect, setNumCorrect] = useState(0)
+  const [results, setResults] = useState([])
   const [isLoading, setIsLoading] = useState(true);
-  const [isCorrect, setIsCorrect] = useState('');
+  const [isCorrect, setIsCorrect] = useState(false);
 
       
   function getQuestions(category) {
@@ -54,12 +55,25 @@ function Game(){
 
   function handleClick(selected){
     if (checkAnswer(selected)) {
-        setIsCorrect('Correct answer!')
+        setIsCorrect(true)
         setNumCorrect(numCorrect + 1)
+        const result = {'question':questions[current].question, 
+                      'user_answer': questions[current][selected],
+                      'correct_answer': questions[current].correct
+                    }
+        setResults(results => [...results, result])
+       
+
     }
     else {
       //alert('Wrong answer')
-      setIsCorrect('Wrong answer')
+      setIsCorrect(false)
+      const result = {'question':questions[current].question, 
+                      'user_answer': questions[current][selected],
+                      'correct_answer': questions[current].correct
+                    }
+        setResults(results => [...results, result])
+        
     }
     if (current<9){
       setCurrent(current + 1)
@@ -82,7 +96,7 @@ function Game(){
 
   else {
     return (
-      <Results numCorrect={numCorrect}/>
+      <Results numCorrect={numCorrect} results = {results}/>
     )
     // navigate('/results', {state: numCorrect})
   }  
