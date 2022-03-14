@@ -45,6 +45,7 @@ function UserProfile() {
             <Col lg={4} md={4} sm={12} xs={12}>
               <Card bg = {'light'} className="game-setup-card" text = {"secondary"} >
                     <Card.Body>
+                    <h3 style={{textAlign:'center', marginBottom:'1rem'}}> Play Game</h3>
                       <GameSetup />
                     </Card.Body>
                 </Card>

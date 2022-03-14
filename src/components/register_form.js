@@ -28,7 +28,7 @@ const initialValues = {
 
 
 function RegisterForm(props) {
-  const [userExists, setUserExists] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('error-message-hidden')
   const loggedIn = sessionStorage.getItem('loggedIn')
   const navigate = useNavigate()
 
@@ -57,14 +57,15 @@ function RegisterForm(props) {
                 navigate('/home');
               })
                 .catch(function (error) {
-                  setUserExists(false);
+                  setErrorMessage('error-message');
                   console.log(error);
                 });
               
             }
           })
           .catch(function (error) {
-            setUserExists(true)
+            setErrorMessage('error-message');
+            console.log(error);
         });
 
         }}
@@ -75,8 +76,7 @@ function RegisterForm(props) {
             <div className="container">
               <h4 style={{ textAlign: 'center' }}>Sign up to continue</h4>
 
-              {userExists ? <p className="error-message">That name is already in use</p> : 
-              <p className="error-message-hidden">That name is already in use</p>}
+              <p className={errorMessage}>That name is already in use</p>
 
               <Form className="form-component">
                 <div className="form-row">

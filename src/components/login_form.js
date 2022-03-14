@@ -25,7 +25,7 @@ function LoginForm(props) {
 
   const navigate = useNavigate();
 
-  const [userExists, setUserExists] = useState(true);
+  const [errorMessage, setErrorMessage] = useState('error-message-hidden')
 
   useEffect(() => {
     if (sessionStorage.getItem('loggedIn') === 'true') {
@@ -52,7 +52,7 @@ function LoginForm(props) {
             navigate('/home');
           })
             .catch(function (error) {
-              setUserExists(false);
+              setErrorMessage('error-message')
               console.log(error);
             });
 
@@ -64,8 +64,7 @@ function LoginForm(props) {
             <div className="container">
               <h4 style={{ textAlign: 'center' }}>Sign in to play</h4>
 
-              {userExists ? <p className="error-message-hidden">User not found. Register below</p> :
-                <p className="error-message">User not found. Register below</p>}
+              <p className={errorMessage}>User not found. Register below</p>
 
               <Form className="form-component">
                 <div className="form-row">

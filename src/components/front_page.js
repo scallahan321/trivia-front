@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Card, Col, Row } from "react-bootstrap"
 import Container from 'react-bootstrap/Container';
 import LoginForm from "./login_form";
+import { useLocation } from "react-router-dom";
 import '../App.css';
 import RegisterForm from "./register_form";
 
@@ -9,6 +10,8 @@ import RegisterForm from "./register_form";
 function FrontPage() {
 
     const [registerView, setRegisterView] = useState(false)
+    const location = useLocation()
+    const logoutMessage = location.state 
     
     return(
      
@@ -19,7 +22,9 @@ function FrontPage() {
         <Row className="front-page-container-row">
             <Col className="front-page-container-col">
               <div id="front-page-welcome-message">
-              <h3 className="text-primary">Welcome to Sean's trivia game</h3>
+                {logoutMessage==="goodbye" ? <h3 className="text-primary">You've been signed out. Thanks for playing</h3>:
+                <h3 className="text-primary">Welcome to Sean's trivia game</h3>
+                }
               </div>
               
             </Col>

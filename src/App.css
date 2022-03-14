@@ -28,10 +28,7 @@
   background-image: linear-gradient(to bottom right, 	#F8F8F8 ,	#E8E8E8);
   height: 100%;
   width: 100%;
-
-  /* background-color: 	#E8E8E8!important; */
 }
-
 
 /* front page login/register form things */
 
@@ -49,7 +46,6 @@
   width: 100%;
 }
 
-
 .front-page-container-row {
   margin-top: 10% !important;
   margin-bottom: 20% !important;
@@ -63,7 +59,6 @@
   text-align: center;
   padding-top: 20% !important;
   padding-bottom: 20% !important;
-  
 }
 
 .front-page-card {
@@ -71,13 +66,10 @@
   height: 28rem;
   border-radius: 8px;
   box-shadow: 1px 1px #D3D3D3;
-  
 }
 
-
 .form-component {
-  margin-top: 5% !important;
-  
+  margin-top: 5% !important;  
 }
 
 .form-row {
@@ -87,7 +79,15 @@
   margin-right: auto;
 }
 
-
+#logout-card {
+  width: 22rem;
+  height: 12rem;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10rem;
+  border-radius: 8px;
+  box-shadow: 1px 1px #D3D3D3;
+}
 
 /*user profile/home things */
 
@@ -135,51 +135,77 @@
   box-shadow: 1px 1px #D3D3D3;
 }
 
-
-
-
 /* game display things */
 
-.btn-big {
-  width: 200px;
-  height: 125px;
-  margin: 15px;
-
+.fade-message {
+  -webkit-animation: fadeinout 3.5s linear forwards;
+  animation: fadeinout 3.5s linear forwards;
 }
 
-.question-container {
-  vertical-align: auto;
-  width:90%;
-  height:50%;
-  margin: 10% 10% 10% 10%;
+@-webkit-keyframes fadeinout {
+0%,100% { opacity: 0; }
+50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+0%,100% { opacity: 0; }
+50% { opacity: 1; }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+
+
+.game-card {
+  width: 48rem;
+  height: 39rem;
+  margin-top: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 8px;
+  box-shadow: 1px 1px #D3D3D3;
+}
+
+#results-card {
+  width: 24rem;
+  height: 22rem;
+  margin-top: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 8px;
+  box-shadow: 1px 1px #D3D3D3;
+}
+
+.question-prompt {
+  height: 5rem;
   text-align: center;
-  
+  margin-top: 2rem;
+  /* margin-bottom: 1rem; */
 }
 
-.button-row {
-  display:block;
-  width:90%;
-  margin:auto;
+#answer-button-top-row {
+  margin-bottom: 4rem;
+}
+
+#answer-button-bottom-row {
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.answer-button-col {
   text-align: center;
 }
 
-.button-container {
-  display: inline-block;
-  
-}
-
-.outer-container {
-  width:100%;
-  height: 100%;
-  display: block;
+.answer-button {
+  font-size: 1.25rem;
+  border-width: 1px;
+  width: 14rem;
+  height: 10rem;
 }
 
 
-.display-container {
-  display: block;
-  width:100%;
-  height:100%;
-}
 
 
 

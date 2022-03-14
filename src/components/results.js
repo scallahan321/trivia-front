@@ -1,14 +1,25 @@
 import axios from 'axios';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import Navbar from './navbar';
+import {Row, Card} from 'react-bootstrap'
+import Container from 'react-bootstrap/Container';
+import Spinner from 'react-bootstrap/Spinner'
+import GameSetup from './game_setup';
+import '../App.css';
 
 
 // this will receive numCorrect from game_logic
 // display results on screen and post to back end
 function Results(props) {
 
-    const navigate = useNavigate()
+     const navigate = useNavigate()
+    // const location = useLocation()
+
+
+ 
+    
 
     const token = sessionStorage.getItem('token')
     const headers = {"Authorization": ""}
@@ -18,9 +29,11 @@ function Results(props) {
 
 
     function putRequest() {
+        
         axios.put('http://localhost:8000/updatestats', stats, {headers})
        .then(function (response) {
          console.log(response);
+         
        })
        .catch(function (error) {
          console.log(error);
@@ -31,18 +44,35 @@ function Results(props) {
         putRequest()
     })
 
-    function handleClick(){
-      navigate('/setup')
+    // function handleClick(){
+    //   navigate('/playagain')
+    // }
 
-    }
 
-      return (
-            <div>
-            {<h1>you scored {props.numCorrect} out of 10</h1>}
-            <Button style={{display:"block"}} size="small" variant="outline-primary" onClick={handleClick} >play again</Button>
-            </div>
-        )
-
+    return (
+        <Container className="vh-100">
+          <Row>
+            <Navbar />
+          </Row>
+         
+          <Row >
+            <Card bg = {'light'} id="results-card" text = {"secondary"} >
+                  <Card.Body>
+                    {<h4>You scored {props.numCorrect} out of 10</h4>}
+                      <Button  
+                      style = {{display:'block', width:'50%', marginTop:'1.5rem', marginRight:'auto', marginLeft: 'auto'}}
+                      size="lg" 
+                      variant="primary" 
+                      onClick = {() => navigate('/home')}>
+                      Return home 
+                    </Button> 
+                  </Card.Body>
+            </Card>
+          </Row>
+          
+    </Container>
+      )
+         
 }
 
 export default Results

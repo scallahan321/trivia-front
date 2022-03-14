@@ -6,6 +6,7 @@ import FrontPage from './components/front_page';
 import Logout from './components/logout';
 import UserProfile from './components/user_profile';
 import GameSetup from './components/game_setup';
+import Results from './components/results';
 import React from 'react';
 
 
@@ -23,6 +24,7 @@ function App(){
               <Route path = "/logout" element={<Logout />}> </Route>
               <Route path = "/home" element={<UserProfile />}> </Route>
               <Route path = "/" element={<FrontPage />}> </Route> 
+              <Route path = "/results" element={<Results />}> </Route>
             
           </Routes>
         

@@ -10,14 +10,15 @@ function ViewStats() {
     const [isLoading, setIsLoading] = useState(true)
 
     function getStats() {
+        setIsLoading(true)
         const token = sessionStorage.getItem('token')
         const url = "http://localhost:8000/viewuserstats"
         const headers = {"Authorization": ""}
         headers.Authorization = "Token ".concat(token)
         axios.get(url, {headers})
           .then(function (response) {
-          setStats(response.data)
-          setIsLoading(false)
+          setStats(response.data);
+          setIsLoading(false);
         }).catch(function (error) {
           console.log(error);
        });
@@ -25,7 +26,7 @@ function ViewStats() {
 
     useEffect( () => {
        getStats()
-    })
+    },[])
 
     return (
         <div>

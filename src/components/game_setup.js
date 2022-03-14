@@ -42,7 +42,7 @@ function GameSetup() {
 
     return (
             <div>
-                <h3 style={{textAlign:'center', marginBottom:'1rem'}}> Play Game</h3>
+                {/* <h3 style={{textAlign:'center', marginBottom:'1rem'}}> Play Game</h3> */}
                 
                 <Form.Select onChange={e => {setSelected(e.target.value); setDisableButton(false)}}  style={{height:'3rem'}} >
                     <option value="" hidden> Select Category </option>

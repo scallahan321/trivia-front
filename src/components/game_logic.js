@@ -1,4 +1,3 @@
-import '../App.css';
 import DisplayGame from './game_display';
 import Results from './results';
 import React, {useEffect, useState} from 'react';
@@ -10,6 +9,7 @@ function Game(){
 
   const location = useLocation()
   const category = location.state
+ 
   
   const [current, setCurrent] = useState(0);
   const [lastQuestion, setLastQuestion] = useState(false)
@@ -18,7 +18,6 @@ function Game(){
   const [isLoading, setIsLoading] = useState(true);
   const [isCorrect, setIsCorrect] = useState('');
 
-  
       
   function getQuestions(category) {
       setIsLoading(true);
@@ -28,7 +27,6 @@ function Game(){
           const list = []
           const keys = Object.keys(data)
           keys.forEach(key => list.push(data[key]));
-          console.log(list)
           setQuestions(list)
           setIsLoading(false)
         })
@@ -38,12 +36,16 @@ function Game(){
 
   useEffect(()=>{
         
-        if (category===null){
-          navigate('/home')
-        }
+      if (category===null){
+        navigate('/home')
+      }
+      else {
         getQuestions({category})
-      },[category, navigate])
+      }
+      
+    },[category, navigate])
   
+
   function checkAnswer(answer) {
     if (questions[current][answer] === questions[current].correct) {
       return true
@@ -52,7 +54,6 @@ function Game(){
 
   function handleClick(selected){
     if (checkAnswer(selected)) {
-        //alert('Correct answer!')
         setIsCorrect('Correct answer!')
         setNumCorrect(numCorrect + 1)
     }
@@ -68,27 +69,22 @@ function Game(){
     }
 } 
 
-  
   if (!lastQuestion) {
     return (
-    
-      // <div className='outer-container'>
-      <div className='main'>
-          
-          <DisplayGame current={current} questions={questions} isLoading={isLoading} handleClick={handleClick}/>
-          <h1>{isCorrect}</h1>
-  
-      </div>
-  
+      <DisplayGame 
+      current={current} 
+      questions={questions} 
+      isLoading={isLoading} 
+      isCorrect={isCorrect}
+      handleClick={handleClick}/>
     )
   }
+
   else {
     return (
-
-      <Results numCorrect={numCorrect} />
-
+      <Results numCorrect={numCorrect}/>
     )
-  }
- 
+    // navigate('/results', {state: numCorrect})
+  }  
 }
 export default Game
