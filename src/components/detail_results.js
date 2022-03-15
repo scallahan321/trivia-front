@@ -35,21 +35,7 @@ function DetailResults(props) {
     return (
         <React.Fragment>
             <ul style={{listStyleType:'none'}}>
-                {/* {props.results.map((item) => <li className="result-li" key = {item.question}>
-                {item.question}: Your answer: {item.user_answer} Correct answer: {item.correct_answer}
-                </li>)} */}
-
-                 {/* {props.results.map((item) => <li className="result-li" key = {item.question}>
-                <p className="result-p">{item.question} Your answer:&nbsp;</p>
-                <p className="result-p" style={{color:'red'}}> {item.user_answer}&nbsp; </p>
-                <p className="result-p"> Correct answer:&nbsp; </p>
-                <p className='result-p' style={{color:'green'}}>{item.correct_answer}</p>
-                </li>)} */}
-
                 {props.results.map((item) => redGreen(item))}
-
-
-
             </ul>
         </React.Fragment>
                 

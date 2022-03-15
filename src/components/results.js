@@ -17,10 +17,9 @@ function Results(props) {
     const token = sessionStorage.getItem('token')
     const headers = {"Authorization": ""}
     headers.Authorization = "Token ".concat(token)
-    const stats = {"questions_attempted": 10, "correct_answers": props.numCorrect}
+    const stats = {'questions_attempted': 10, 'correct_answers': props.numCorrect, 'category': parseInt(props.category,10)}
 
     function putRequest() {
-        console.log(stats)
         axios.put('http://localhost:8000/updatestats', stats, {headers})
        .then(function (response) {
          console.log(response);
