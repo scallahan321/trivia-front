@@ -96,9 +96,8 @@ function Game(){
 
   else {
     return (
-      <Results numCorrect={numCorrect} results ={results}/>
+      <Results numCorrect={numCorrect} results={results} category={category}/>
     )
-    // navigate('/results', {state: numCorrect})
   }  
 }
 export default Game
