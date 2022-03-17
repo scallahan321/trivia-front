@@ -11,8 +11,11 @@ function Leaderboard() {
     // const [leaders, setLeaders] = useState({})
     const [leaders, setLeaders] = useState([])
     const [category, setCategory] = useState(0)
+    const [dropdownLabel, setDropdownLabel] = useState("All categories")
+
 
     const categories = [
+        {"label": "All categories", "value": 0},
         {"label": "General Knowledge", "value": 9},
         {"label": "Books", "value": 10},
         {"label": "Film", "value": 11},
@@ -24,36 +27,44 @@ function Leaderboard() {
         {"label": "Geography", "value": 22},
         {"label": "History", "value": 23},
     ]
+    
+    function toPercent(num) {
+        var percent;
+        if (num===1) {
+            percent = "100%"
+        }
+        else {
+            const str = num.toString()
+            var sliced = str.slice(2,4)
+            if (sliced.length<2){
+                sliced = sliced.concat(0)
+            }
+            percent = sliced.concat("%")
+        }
+        return percent
+    }
 
-
-    // function getLeaderboard(category) {
-    //     const body = {"category": category}
-    //     setIsLoading(true);
-    //     axios.post("http://localhost:8000/leaderboard", body)
-    //       .then(response => response.data)
-    //       .then((data) => {
-    //         setLeaders(data)
-    //         setIsLoading(false)
-    //       })
-    //       }
-
-    function getLeaderboard(category) {
+    useEffect( () => {
         const body = {"category": category}
         setIsLoading(true);
         axios.post("http://localhost:8000/leaderboard", body)
-          .then(response => response.data)
-          .then((data) => {
+            .then(response => response.data)
+            .then((data) => {
             const list = []
             const keys = Object.keys(data)
             keys.forEach(key => list.push(data[key]));
             setLeaders(list)
             setIsLoading(false)
-          })
-          }
-
-    useEffect( () => {
-        getLeaderboard(category)
+            })
+              
     }, [category])
+
+    function onChange(e) {
+        setCategory(parseInt(e.target.value));
+        var index = e.nativeEvent.target.selectedIndex;
+            //event.nativeEvent.target[index].text
+        setDropdownLabel(e.nativeEvent.target[index].text)
+    }
 
 
 
@@ -62,24 +73,20 @@ function Leaderboard() {
         <div>
             {isLoading ? <Spinner animation="border" role="status"></Spinner> :
                 <div>
-                    <h3 style={{textAlign:'center', marginBottom:'1rem'}}>Leaderboard</h3>
+                    <h3 style={{textAlign:'center', marginBottom:'1.5rem'}}>Leaderboard</h3>
 
-                    <Form.Select onChange={e => {setCategory(parseInt(e.target.value))}}  style={{height:'3rem'}} >
-                        <option value="" hidden> All categories </option>
+                    <Form.Select onChange={ e => onChange(e)} style={{height:'3rem'}} >
+                        <option value="" hidden>{dropdownLabel}</option>
                         {categories.map((item) => <option key = {item.label} value={item.value}>{item.label}</option>)}
                     </Form.Select>
 
                     <ol >
-                        {/* <li className='leaderboard-list'>{leaders.first}</li>
-                        <li className='leaderboard-list'>{leaders.second}</li>
-                        <li className='leaderboard-list'>{leaders.third}</li>
-                        <li className='leaderboard-list'>{leaders.fourth}</li>
-                        <li className='leaderboard-list'>{leaders.fifth}</li> */}
-                        <li className='leaderboard-list'>{leaders[0].username}:&nbsp;{leaders[0].percent}&nbsp;correct</li>
-                        {/* <li className='leaderboard-list'>{leaders.second.username}:&nbsp;{leaders.second.percent} correct</li>
-                        <li className='leaderboard-list'>{leaders.third.username}:&nbsp;{leaders.third.percent} correct</li>
-                        <li className='leaderboard-list'>{leaders.fourth.username}:&nbsp;{leaders.fourth.percent} correct</li>
-                        <li className='leaderboard-list'>{leaders.fifth.username}:&nbsp;{leaders.fifth.percent} correct</li> */}
+                        <li className='leaderboard-list'>{leaders[0].username}:&nbsp;<strong>{toPercent(leaders[0].percent)}</strong></li>
+                        <li className='leaderboard-list'>{leaders[1].username}:&nbsp;<strong>{toPercent(leaders[1].percent)}</strong></li>
+                        <li className='leaderboard-list'>{leaders[2].username}:&nbsp;<strong>{toPercent(leaders[2].percent)}</strong></li>
+                        <li className='leaderboard-list'>{leaders[3].username}:&nbsp;<strong>{toPercent(leaders[3].percent)}</strong></li>
+                        <li className='leaderboard-list'>{leaders[4].username}:&nbsp;<strong>{toPercent(leaders[4].percent)}</strong></li>
+                        
                     </ol>
                 </div>
                 }

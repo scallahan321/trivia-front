@@ -10,7 +10,7 @@ import '../App.css';
 const registerSchema = Yup.object().shape({
     username: Yup.string()
         .min(4, 'Too Short!')
-        .max(25, 'Too Long!')
+        .max(16, 'Too Long!')
         .required('Required'),
     password: Yup.string()
         .required("Password is required")
@@ -34,7 +34,7 @@ function RegisterForm(props) {
 
   useEffect( () => {
       if (loggedIn !== null) {
-        navigate('/user-profile')
+        navigate('/home')
       }
   }, [loggedIn, navigate])
 

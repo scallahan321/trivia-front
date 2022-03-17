@@ -29,7 +29,7 @@ function LoginForm(props) {
 
   useEffect(() => {
     if (sessionStorage.getItem('loggedIn') === 'true') {
-      navigate('/user-profile');
+      navigate('/home');
     }
 
   }, [navigate]);

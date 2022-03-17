@@ -37,7 +37,7 @@ function GameSetup() {
                </Form.Select>
 
                <Button  
-                  style = {{display:'block', width:'50%', marginTop:'1.5rem', marginRight:'auto', marginLeft: 'auto'}}
+                  style = {{display:'block', width:'50%', marginTop:'2.5rem', marginRight:'auto', marginLeft: 'auto'}}
                   size="lg" 
                   disabled={disableButton}
                   variant="primary" 

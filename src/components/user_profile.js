@@ -32,7 +32,7 @@ function UserProfile() {
             <Navbar />
           </Row>
           <Row>
-            <h2 id="welcome-message" className="text-primary">Hello {username}</h2>
+            <h3 id="welcome-message" className="text-primary">Hello {username}</h3>
           </Row>
           <Row>
             <Col lg={4} md={4} sm={12} xs={12}>
@@ -45,7 +45,7 @@ function UserProfile() {
             <Col lg={4} md={4} sm={12} xs={12}>
               <Card bg = {'light'} className="game-setup-card" text = {"secondary"} >
                     <Card.Body>
-                    <h3 style={{textAlign:'center', marginBottom:'1rem'}}> Play Game</h3>
+                    <h2 style={{textAlign:'center', marginBottom:'2rem'}}> <strong>Play Trivia</strong></h2>
                       <GameSetup />
                     </Card.Body>
                 </Card>

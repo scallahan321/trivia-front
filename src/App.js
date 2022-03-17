@@ -1,3 +1,4 @@
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
@@ -7,9 +8,10 @@ import Logout from './components/logout';
 import UserProfile from './components/user_profile';
 import GameSetup from './components/game_setup';
 import Results from './components/results';
-import React from 'react';
+import StatsDetail from './components/statsdetail';
 import DetailResults from './components/detail_results';
-
+import StatsPlot from './components/stats_plot';
+import PlotParent from './components/plot_parent';
 
 function App(){
 
@@ -27,6 +29,9 @@ function App(){
               <Route path = "/" element={<FrontPage />}> </Route> 
               <Route path = "/results" element={<Results />}> </Route>
               <Route path = "/detailresults" element={<DetailResults />}></Route>
+              <Route path = "/statsdetail" element={<StatsDetail />}></Route>
+              <Route path = "/statsplot" element={<StatsPlot />}></Route>
+              <Route path = "/plotparent" element={<PlotParent />}></Route>
             
           </Routes>
         
