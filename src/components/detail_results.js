@@ -30,17 +30,12 @@ function DetailResults(props) {
         }
        }
    
-
-
     return (
         <React.Fragment>
             <ul style={{listStyleType:'none'}}>
                 {props.results.map((item) => redGreen(item))}
             </ul>
         </React.Fragment>
-                
-                  
-
     )
 }
 export default DetailResults

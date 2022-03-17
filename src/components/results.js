@@ -22,7 +22,7 @@ function Results(props) {
     function putRequest() {
         axios.put('http://localhost:8000/updatestats', stats, {headers})
        .then(function (response) {
-        //  console.log(response);
+          //console.log(response);
        })
        .catch(function (error) {
          console.log(error);
@@ -42,12 +42,13 @@ function Results(props) {
           <Row >
             <Card className = "game-card" bg = {'light'} text = {"secondary"} >
                   <Card.Body>
-                    <h3 style={{marginTop: '1rem', textAlign:'center'}}>You scored {props.numCorrect}/10</h3>
+                    <h2 style={{marginTop: '1rem', textAlign:'center'}}>You scored {props.numCorrect}/10</h2>
+                    <p className='text-primary' style={{marginBottom:'1rem', marginTop:'2rem', textAlign:'center'}}>Scroll down to view your results</p>
                     <div id="result-container">
                       <DetailResults results={props.results}/>
                     </div>
                     <Button  
-                      style = {{display:'block', width:'50%', marginTop:'2rem', marginRight:'auto', marginLeft: 'auto'}}
+                      style = {{display:'block', width:'50%', marginTop:'3rem', marginRight:'auto', marginLeft: 'auto'}}
                       size="lg" 
                       variant="primary" 
                       onClick = {() => navigate('/home')}>

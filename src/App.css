@@ -210,6 +210,7 @@ tr:nth-child(even) {
 
 .result-li {
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .result-p {
@@ -217,11 +218,12 @@ tr:nth-child(even) {
 }
 
 #result-container {
-  margin-top: 3rem;
+  border: 1px solid #E8E8E8;
+  margin-top: 2rem;
   overflow: scroll;
   margin-right: auto;
   margin-left: auto;
-  height: 65%;
+  height: 55%;
   width: 90%;
 }
 
