@@ -39,9 +39,8 @@ function LoginForm(props) {
         validationSchema={signInSchema}
         onSubmit={(values) => {
           //trying this out
-          const headers = {'Content-Type': 'application/json', "Access-Control-Allow-Origin": "*",}
           const url = "https://seans-trivia-api.herokuapp.com/api-token-auth/";
-          axios.post(url, values, {headers}).then((response) => {
+          axios.post(url, values).then((response) => {
             sessionStorage.setItem("username", values.username);
             sessionStorage.setItem("token", response.data.token);
             sessionStorage.setItem("loggedIn", 'true');
