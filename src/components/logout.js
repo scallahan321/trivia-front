@@ -13,7 +13,7 @@ function Logout() {
         const user = sessionStorage.getItem('username')
         const data = {'username': user}
         const token = sessionStorage.getItem("token")
-        const url = "https://seans-trivia-api.herokuapp.com/logout"
+        const url = "localhost:8000/logout"
         const headers = {"Authorization": ""}
         headers.Authorization = "Token ".concat(token)
         sessionStorage.removeItem('token')

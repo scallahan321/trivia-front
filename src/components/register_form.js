@@ -44,11 +44,11 @@ function RegisterForm(props) {
         initialValues={initialValues}
         validationSchema={registerSchema}
         onSubmit={(values) => {
-          const url = "https://seans-trivia-api.herokuapp.com/register"
+          const url = "localhost:8000/register"
           axios.post(url, values).then
           ((response) => {
             if (response.status === 201){
-                const url = "https://seans-trivia-api.herokuapp.com/api-token-auth/";
+                const url = "localhost:8000/api-token-auth/";
                 axios.post(url, values).then((response) => {
                 sessionStorage.setItem("username", values.username);
                 sessionStorage.setItem("token", response.data.token);

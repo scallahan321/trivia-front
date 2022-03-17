@@ -44,7 +44,7 @@ function Leaderboard() {
     useEffect( () => {
         const body = {"category": category}
         setIsLoading(true);
-        axios.post("https://seans-trivia-api.herokuapp.com/leaderboard", body)
+        axios.post("localhost:8000/leaderboard", body)
             .then(response => response.data)
             .then((data) => {
             const list = []
