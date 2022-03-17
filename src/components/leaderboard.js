@@ -8,12 +8,9 @@ import '../App.css';
 function Leaderboard() {
 
     const [isLoading, setIsLoading] = useState(true)
-    // const [leaders, setLeaders] = useState({})
     const [leaders, setLeaders] = useState([])
     const [category, setCategory] = useState(0)
     const [dropdownLabel, setDropdownLabel] = useState("All categories")
-
-
     const categories = [
         {"label": "All categories", "value": 0},
         {"label": "General Knowledge", "value": 9},
@@ -56,7 +53,6 @@ function Leaderboard() {
             setLeaders(list)
             setIsLoading(false)
             })
-              
     }, [category])
 
     function onChange(e) {
@@ -66,20 +62,15 @@ function Leaderboard() {
         setDropdownLabel(e.nativeEvent.target[index].text)
     }
 
-
-
     return (
-
         <div>
             {isLoading ? <Spinner animation="border" role="status"></Spinner> :
                 <div>
                     <h3 style={{textAlign:'center', marginBottom:'1.5rem'}}>Leaderboard</h3>
-
                     <Form.Select onChange={ e => onChange(e)} style={{height:'3rem'}} >
                         <option value="" hidden>{dropdownLabel}</option>
                         {categories.map((item) => <option key = {item.label} value={item.value}>{item.label}</option>)}
                     </Form.Select>
-
                     <ol >
                         <li className='leaderboard-list'>{leaders[0].username}:&nbsp;<strong>{toPercent(leaders[0].percent)}</strong></li>
                         <li className='leaderboard-list'>{leaders[1].username}:&nbsp;<strong>{toPercent(leaders[1].percent)}</strong></li>
@@ -89,11 +80,8 @@ function Leaderboard() {
                         
                     </ol>
                 </div>
-                }
-        </div>
-            
-        
-        
+            }
+        </div>     
     )
 }
 

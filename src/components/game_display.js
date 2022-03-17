@@ -9,7 +9,6 @@ import Container from 'react-bootstrap/Container';
 function DisplayGame(props){
 
     return (
-
       <Container className="vh-100">
         <Row>
           <Navbar />
@@ -67,9 +66,7 @@ function DisplayGame(props){
           </Card>
         </Row>
         }
-      </Container>
-
-                 
+      </Container>       
       )
 }
 export default DisplayGame

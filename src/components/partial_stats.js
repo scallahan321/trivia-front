@@ -6,11 +6,12 @@ import Button from 'react-bootstrap/Button'
 import { useNavigate } from "react-router-dom";
 
 
-function ViewStats() {
+function PartialStats() {
     const [stats, setStats] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [newUser, setNewUser] = useState(true)
     const [best, setBest] = useState('')
+    const navigate = useNavigate()
     var percent_correct_all = stats.correct_answers / stats.questions_attempted
 
     if (isNaN(percent_correct_all)){
@@ -19,8 +20,6 @@ function ViewStats() {
     else {
         percent_correct_all = toPercent(percent_correct_all)
     }
-
-    const navigate = useNavigate()
 
     const categories = [
         {"label": "General Knowledge", "attempted" : stats.cat9_attempted, "correct": stats.cat9_correct,
@@ -54,6 +53,14 @@ function ViewStats() {
         "percent" : average(stats.cat23_correct, stats.cat23_attempted)
         }
         ]
+
+        //will be passed as props to FullStats component for plotly chart
+        const xValues = []
+        const yValues = []
+        for (const item of categories) {
+            xValues.push(item.label)
+            yValues.push(item.percent)
+        }
 
     function average(correct, attempted) {
         if (attempted===0){
@@ -100,7 +107,6 @@ function ViewStats() {
     }
 
     useEffect( () => {
-        
             setIsLoading(true)
             const token = sessionStorage.getItem('token')
             const url = "http://localhost:8000/viewuserstats"
@@ -122,14 +128,6 @@ function ViewStats() {
         bestCategory()
     })
 
-     //will be passed as props to stats detail component
-     const xValues = []
-     const yValues = []
-     for (const item of categories) {
-         xValues.push(item.label)
-         yValues.push(item.percent)
-     }
-
     return (
         <div>
             {isLoading ? <Spinner animation="border" role="status"></Spinner> :
@@ -137,29 +135,25 @@ function ViewStats() {
                     <h3 style={{textAlign:'center', marginBottom:'2rem'}}> Your stats:</h3>
                     {newUser ? <p className="stats-message-visible">Play some rounds first!</p> :
                         <div>
-                            
                             <div style={{textAlign: 'center'}}>
                                 <p>Questions answered: <strong>{stats.questions_attempted}</strong></p>
                                 <p>Correct answers: <strong>{stats.correct_answers}</strong></p>
                                 <p>Percent correct: <strong>{percent_correct_all}</strong></p>
                                 <p>Best category: <strong>{best}</strong></p>
                             </div>
-            
                             <Button  
                                 style = {{display:'block', width:'62%', marginTop:'2rem', marginRight:'auto', marginLeft: 'auto'}}
                                 size="lg" 
                                 variant="primary" 
-                                // onClick = {()=> navigate('/statsdetail', {state: stats})}
-                                onClick = {()=> navigate('/plotparent', {state: {stats: stats, categories: categories, x: xValues, y: yValues}})}
+                                onClick = {()=> navigate('/fullstats', {state: {stats: stats, categories: categories, x: xValues, y: yValues}})}
                                 > 
                                 Detailed stats
                             </Button>
                         </div>}
                 </div>}
         </div>
-     
     )
 }
 
-export default ViewStats
+export default PartialStats
 

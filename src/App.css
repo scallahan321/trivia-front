@@ -79,95 +79,7 @@
   margin-right: auto;
 }
 
-#logout-card {
-  width: 22rem;
-  height: 12rem;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 10rem;
-  border-radius: 8px;
-  box-shadow: 1px 1px #D3D3D3;
-}
-
 /*user profile/home things */
-
-#welcome-message {
-  text-align: center;
-  padding-top: 2%;
-  padding-bottom: 5%;
-}
-
-
-.leaderboard-list {
- margin: 1rem 1rem 1rem 1rem;
- padding-left: 1rem;
-}
-
-.stats-detailed-li {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-.stats-plot {
-  width: 95%;
-  height: 95%;
-  display: block;
-  margin-right: .87rem;
-  /* margin-left: 2.5%;
-  margin-top: 2.5%; */
-}
-
-#plot-title {
-  color: blue;
-}
-
-#stats-plot-container {
-  width: 34rem;
-  height: 32rem;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 8px;
-  box-shadow: 1.5px 1.5px #D3D3D3;
-}
-
-
-#stats-detailed-card {
-  width: 34rem;
-  height: 32rem;
-  overflow: scroll;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 8px;
-  box-shadow: 1.5px 1.5px #D3D3D3;
-}
-
-
-.stats-detailed-p {
-  display: inline-block;
-}
-
-table {
-  border-collapse: collapse;
-  width: 30rem;
-  height: 28rem;
-  margin-left: 2rem;
-  margin-top: 2rem;
-}
-
-td, th {
-  /* border: 1px solid #dddddd; */
-  text-align: left;
-  padding: .5rem;
-}
-
-tr:nth-child(even) {
-  background-color: #E8E8E8;
-}
-
-.stats-message-visible {
-  text-align: center;
-  margin-top: auto;
-}
 
 .leaderboard-card {
   width: 20rem;
@@ -196,6 +108,88 @@ tr:nth-child(even) {
   box-shadow: 1.5px 1.5px #D3D3D3;
 }
 
+#logout-card {
+  width: 22rem;
+  height: 12rem;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10rem;
+  border-radius: 8px;
+  box-shadow: 1px 1px #D3D3D3;
+}
+
+#welcome-message {
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 5%;
+}
+
+.leaderboard-list {
+ margin: 1rem 1rem 1rem 1rem;
+ padding-left: 1rem;
+}
+
+.stats-detailed-li {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.stats-plot {
+  width: 95%;
+  height: 95%;
+  display: block;
+  margin-right: .87rem;
+}
+
+#plot-title {
+  color: blue;
+}
+
+#stats-plot-container {
+  width: 34rem;
+  height: 32rem;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 8px;
+  box-shadow: 1.5px 1.5px #D3D3D3;
+}
+
+#stats-detailed-card {
+  width: 34rem;
+  height: 32rem;
+  overflow: scroll;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 8px;
+  box-shadow: 1.5px 1.5px #D3D3D3;
+}
+
+.stats-detailed-p {
+  display: inline-block;
+}
+
+table {
+  border-collapse: collapse;
+  width: 30rem;
+  height: 28rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+td, th {
+  text-align: left;
+  padding: .5rem;
+}
+
+tr:nth-child(even) {
+  background-color: #E8E8E8;
+}
+
+.stats-message-visible {
+  text-align: center;
+  margin-top: auto;
+}
+
 /* game display things */
 
 .game-card {
@@ -219,7 +213,7 @@ tr:nth-child(even) {
 
 #result-container {
   border: 1px solid #E8E8E8;
-  margin-top: 2rem;
+  margin-top: 1rem;
   overflow: scroll;
   margin-right: auto;
   margin-left: auto;
@@ -252,17 +246,3 @@ tr:nth-child(even) {
   width: 14rem;
   height: 10rem;
 }
-
-
-
-
-
-
-
-  
-
-
-
-
-
-

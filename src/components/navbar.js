@@ -9,11 +9,8 @@ function Navbar() {
         <div  style={{textAlign:"left"}}>
              <Link to="/home" className="text-secondary" style={{display:"inline-block", margin:"10px"}}>Home</Link>
              <Link to="/logout"  className="text-secondary" style={{display:"inline-block", margin:"10px"}}>Logout</Link>
-             
         </div>
-       
     )
-
 }
 
 export default Navbar

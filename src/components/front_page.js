@@ -8,16 +8,15 @@ import RegisterForm from "./register_form";
 
 
 function FrontPage() {
-
+  
     const [registerView, setRegisterView] = useState(false)
     const location = useLocation()
     const logoutMessage = location.state 
     
     return(
-     
       <Container className="vh-100">
         <Row>
-
+        
         </Row>
         <Row className="front-page-container-row">
             <Col className="front-page-container-col">
@@ -26,7 +25,6 @@ function FrontPage() {
                 <h3 className="text-primary">Welcome to Sean's trivia game</h3>
                 }
               </div>
-              
             </Col>
             <Col className="front-page-container-col">
             <Card bg = {'light'} className="front-page-card" text = {"secondary"} >
@@ -34,16 +32,11 @@ function FrontPage() {
                 {!registerView ? <LoginForm setRegisterView = {setRegisterView}/> : 
                   <RegisterForm setRegisterView = {setRegisterView} />
                 }
-                
               </Card.Body>
             </Card>
-                
             </Col>
         </Row>
-
       </Container>
-          
-    
     ) 
 }
 

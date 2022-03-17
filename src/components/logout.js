@@ -16,7 +16,6 @@ function Logout() {
         const url = "http://localhost:8000/logout"
         const headers = {"Authorization": ""}
         headers.Authorization = "Token ".concat(token)
-
         sessionStorage.removeItem('token')
         sessionStorage.removeItem('username')
         sessionStorage.removeItem('loggedIn')
@@ -24,7 +23,6 @@ function Logout() {
         axios.post(url, data, {headers})
         .then(function (response) {
           navigate('/', {state: "goodbye"})
-          
         })
         .catch(function (error) {
           console.log(error);
@@ -52,9 +50,7 @@ function Logout() {
                 </Card.Body>
           </Card>
         </Row>
-        
       </Container>  
     )
-
 }
 export default Logout

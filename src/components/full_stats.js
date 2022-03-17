@@ -6,14 +6,13 @@ import { useLocation } from 'react-router-dom'
 import StatsPlot from './stats_plot';
 import StatsDetail from './statsdetail';
 
-function PlotParent() {
+function FullStats() {
 
     const location = useLocation()
     const xValues = location.state['x']
     const yValues = location.state['y']
     const stats = location.state['stats']
     const categories = location.state['categories']
-    
 
     return (
         <Container className="vh-100">
@@ -36,4 +35,4 @@ function PlotParent() {
     )
 }
 
-export default PlotParent
+export default FullStats

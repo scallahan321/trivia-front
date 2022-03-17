@@ -6,11 +6,8 @@ import Navbar from './navbar';
 import {Row, Card} from 'react-bootstrap'
 import Container from 'react-bootstrap/Container';
 import '../App.css';
-import DetailResults from './detail_results';
 
 
-// this will receive numCorrect from game_logic
-// display results on screen and post to back end
 function Results(props) {
 
     const navigate = useNavigate()
@@ -33,19 +30,46 @@ function Results(props) {
         putRequest()
     })
 
+    const listResults = (item) => {
+      if (item.user_answer===item.correct_answer){
+          return (
+           <li className='result-li' key = {item.question}>
+               <p className='result-p' style={{fontWeight:'bold'}}>{item.question}&nbsp;</p>
+               <p className='result-p'>You answered:&nbsp;</p>
+               <p className='result-p' style={{color:'green',fontWeight:'bold'}}> {item.user_answer}&nbsp; </p>
+               <p className='result-p'> Correct answer:&nbsp; </p>
+               <p className='result-p' style={{color:'green',fontWeight:'bold'}}>{item.correct_answer}</p>
+           </li>
+          )
+      }
+       else {
+           return (
+               <li className="result-li" key = {item.question}>
+               <p className="result-p" style={{fontWeight:'bold'}}>{item.question}&nbsp;</p>
+               <p className='result-p'>You answered:&nbsp;</p>
+               <p className="result-p" style={{color:'red',fontWeight:'bold'}}> {item.user_answer}&nbsp; </p>
+               <p className="result-p"> Correct answer:&nbsp; </p>
+               <p className='result-p' style={{color:'green',fontWeight:'bold'}}>{item.correct_answer}</p>
+           </li>
+           )
+       }
+      }
+
     return (
         <Container className="vh-100">
           <Row>
             <Navbar />
           </Row>
-         
           <Row >
             <Card className = "game-card" bg = {'light'} text = {"secondary"} >
                   <Card.Body>
                     <h2 style={{marginTop: '1rem', textAlign:'center'}}>You scored {props.numCorrect}/10</h2>
-                    <p className='text-primary' style={{marginBottom:'1rem', marginTop:'2rem', textAlign:'center'}}>Scroll down to view your results</p>
+                    <p className='text-primary' style={{ marginTop:'2rem', textAlign:'center'}}>Scroll down to view your results</p>
                     <div id="result-container">
-                      <DetailResults results={props.results}/>
+                      {/* <DetailResults results={props.results}/> */}
+                      <ul style={{listStyleType:'none'}}>
+                        {props.results.map((item) => listResults(item))}
+                      </ul>
                     </div>
                     <Button  
                       style = {{display:'block', width:'50%', marginTop:'3rem', marginRight:'auto', marginLeft: 'auto'}}
@@ -57,10 +81,8 @@ function Results(props) {
                   </Card.Body>
             </Card>
           </Row>
-          
-    </Container>
-      )
-         
+        </Container>
+      ) 
 }
 
 export default Results

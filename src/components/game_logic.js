@@ -9,8 +9,6 @@ function Game(){
 
   const location = useLocation()
   const category = location.state
- 
-  
   const [current, setCurrent] = useState(0);
   const [lastQuestion, setLastQuestion] = useState(false)
   const [questions, setQuestions] = useState([])
@@ -18,7 +16,7 @@ function Game(){
   const [results, setResults] = useState([])
   const [isLoading, setIsLoading] = useState(true);
   const [isCorrect, setIsCorrect] = useState(false);
-
+  const navigate = useNavigate()
       
   function getQuestions(category) {
       setIsLoading(true);
@@ -33,8 +31,6 @@ function Game(){
         })
         }
 
-  const navigate = useNavigate()
-
   useEffect(()=>{
         
       if (category===null){
@@ -46,7 +42,6 @@ function Game(){
       
     },[category, navigate])
   
-
   function checkAnswer(answer) {
     if (questions[current][answer] === questions[current].correct) {
       return true
@@ -62,18 +57,14 @@ function Game(){
                       'correct_answer': questions[current].correct
                     }
         setResults(results => [...results, result])
-       
-
     }
     else {
-      //alert('Wrong answer')
       setIsCorrect(false)
       const result = {'question':questions[current].question, 
                       'user_answer': questions[current][selected],
                       'correct_answer': questions[current].correct
                     }
         setResults(results => [...results, result])
-        
     }
     if (current<9){
       setCurrent(current + 1)
@@ -93,7 +84,6 @@ function Game(){
       handleClick={handleClick}/>
     )
   }
-
   else {
     return (
       <Results numCorrect={numCorrect} results={results} category={category}/>

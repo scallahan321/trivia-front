@@ -26,8 +26,8 @@ const initialValues = {
   confirmpassword: ""
 };
 
-
 function RegisterForm(props) {
+  
   const [errorMessage, setErrorMessage] = useState('error-message-hidden')
   const loggedIn = sessionStorage.getItem('loggedIn')
   const navigate = useNavigate()
@@ -45,12 +45,11 @@ function RegisterForm(props) {
         validationSchema={registerSchema}
         onSubmit={(values) => {
           const url = "http://localhost:8000/register"
-        
           axios.post(url, values).then
           ((response) => {
             if (response.status === 201){
-              const url = "http://localhost:8000/api-token-auth/";
-              axios.post(url, values).then((response) => {
+                const url = "http://localhost:8000/api-token-auth/";
+                axios.post(url, values).then((response) => {
                 sessionStorage.setItem("username", values.username);
                 sessionStorage.setItem("token", response.data.token);
                 sessionStorage.setItem("loggedIn", 'true');
@@ -60,27 +59,23 @@ function RegisterForm(props) {
                   setErrorMessage('error-message');
                   console.log(error);
                 });
-              
             }
           })
           .catch(function (error) {
             setErrorMessage('error-message');
             console.log(error);
         });
-
         }}
       >
         {(formik) => {
           const { errors, touched, isValid, dirty } = formik;
           return (
+
             <div className="container">
               <h4 style={{ textAlign: 'center' }}>Sign up to continue</h4>
-
               <p className={errorMessage}>That name is already in use</p>
-
               <Form className="form-component">
                 <div className="form-row">
-                  
                   <Field
                   style={{ position: 'relative', height: '2.5rem', width: '15rem', marginRight: 'auto', marginLeft: 'auto' }}
                     type="username"
@@ -93,9 +88,7 @@ function RegisterForm(props) {
                   />
                   <ErrorMessage className="error-message" name="username" component="span" />
                 </div>
-
                 <div className="form-row">
-                  
                   <Field
                     style={{ position: 'relative', height: '2.5rem', width: '15rem', marginRight: 'auto', marginLeft: 'auto' }}
                     type="password"
@@ -106,10 +99,8 @@ function RegisterForm(props) {
                       errors.password && touched.password ? "input-error" : null
                     }
                   />
-                  
                   <ErrorMessage className="error-message" name="password" component="span"/>
                 </div> 
-
                 <div className="form-row">
                   <Field
                     style={{ position: 'relative', height: '2.5rem', width: '15rem', marginRight: 'auto', marginLeft: 'auto' }}
@@ -123,7 +114,6 @@ function RegisterForm(props) {
                   />
                   <ErrorMessage name="confirmpassword" component="span" className="error-message"/>
                 </div>
-
                 <Button 
                   style = {{display:'block', width:'80%', marginTop:'.5rem', marginRight:'auto', marginLeft: 'auto'}}
                   type="submit" 
@@ -133,7 +123,6 @@ function RegisterForm(props) {
                   variant="primary"> 
                   Register 
                 </Button>
-
                 <Button 
                   style = {{border: 'none', marginTop:'1rem', marginRight: 'auto', marginLeft: 'auto'}}
                   onClick = {() => props.setRegisterView(false)} 
@@ -141,14 +130,12 @@ function RegisterForm(props) {
                   variant="outline-primary"> 
                   Back to login 
                 </Button>
-
               </Form>
             </div>
           );
         }}
       </Formik>
     </div>
-
   );
 };
 

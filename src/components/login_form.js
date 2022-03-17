@@ -24,25 +24,19 @@ const initialValues = {
 function LoginForm(props) {
 
   const navigate = useNavigate();
-
   const [errorMessage, setErrorMessage] = useState('error-message-hidden')
 
   useEffect(() => {
     if (sessionStorage.getItem('loggedIn') === 'true') {
       navigate('/home');
     }
-
   }, [navigate]);
-
 
   return (
     <div>
-
-
       <Formik
         initialValues={initialValues}
         validationSchema={signInSchema}
-
         onSubmit={(values) => {
           const url = "http://localhost:8000/api-token-auth/";
           axios.post(url, values).then((response) => {
@@ -55,31 +49,25 @@ function LoginForm(props) {
               setErrorMessage('error-message')
               console.log(error);
             });
-
         } }>
-
         {(formik) => {
           const { errors, touched, isValid, dirty } = formik;
           return (
             <div className="container">
               <h4 style={{ textAlign: 'center' }}>Sign in to play</h4>
-
               <p className={errorMessage}>User not found. Register below</p>
-
               <Form className="form-component">
                 <div className="form-row">
-                  
                   <Field
                     style={{ position: 'relative', height: '2.5rem', width: '15rem', marginRight: 'auto', marginLeft: 'auto' }}
                     type="username"
                     name="username"
                     placeholder="Username"
                     id="username"
-                    className={errors.username && touched.username ? "input-error" : null} />
-                
+                    className={errors.username && touched.username ? "input-error" : null} 
+                    />
                   <ErrorMessage name="username" component="span" className="error-message" />
                 </div>
-
                 <div className="form-row">
                   <Field
                     style={{ position: 'relative', height: "2.5rem", width: '15rem', marginRight: 'auto', marginLeft: 'auto' }}
@@ -87,12 +75,10 @@ function LoginForm(props) {
                     name="password"
                     placeholder="Password"
                     id="password"
-                    className={errors.password && touched.password ? "input-error" : null} />
-                  
+                    className={errors.password && touched.password ? "input-error" : null} 
+                    />
                   <ErrorMessage name="password" component="span" className="error-message" />
-                
                 </div>
-
                 <Button 
                   style = {{display:'block', width:'80%', marginTop:'.5rem', marginRight:'auto', marginLeft: 'auto'}}
                   type="submit" 
@@ -102,9 +88,7 @@ function LoginForm(props) {
                   variant="primary"> 
                   Sign in 
                 </Button>
-
                 <div style={{height:'1px', border: '.5px solid #D3D3D3', marginTop:'1.5rem', marginBottom:'1.5rem'}}></div>
-
                 <Button  
                   style = {{display:'block', width:'80%', marginTop:'.5rem', marginRight:'auto', marginLeft: 'auto'}}
                   size="lg" 
@@ -112,7 +96,6 @@ function LoginForm(props) {
                   onClick = { () => props.setRegisterView(true)}> 
                   Register 
                 </Button>
-                
               </Form>
             </div>
           );
