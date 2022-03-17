@@ -109,7 +109,7 @@ function PartialStats() {
     useEffect( () => {
             setIsLoading(true)
             const token = sessionStorage.getItem('token')
-            const url = "http://localhost:8000/viewuserstats"
+            const url = "https://seans-trivia-api.herokuapp.com/viewuserstats"
             const headers = {"Authorization": ""}
             headers.Authorization = "Token ".concat(token)
             axios.get(url, {headers})

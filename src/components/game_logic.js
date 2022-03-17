@@ -20,7 +20,7 @@ function Game(){
       
   function getQuestions(category) {
       setIsLoading(true);
-      axios.post("http://localhost:8000/questions", category)
+      axios.post("https://seans-trivia-api.herokuapp.com/questions", category)
         .then(response => response.data)
         .then((data) => {
           const list = []

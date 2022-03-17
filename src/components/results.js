@@ -17,7 +17,7 @@ function Results(props) {
     const stats = {'questions_attempted': 10, 'correct_answers': props.numCorrect, 'category': parseInt(props.category,10)}
 
     function putRequest() {
-        axios.put('http://localhost:8000/updatestats', stats, {headers})
+        axios.put('https://seans-trivia-api.herokuapp.com/updatestats', stats, {headers})
        .then(function (response) {
           //console.log(response);
        })
