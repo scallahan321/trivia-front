@@ -19,14 +19,14 @@ function FrontPage() {
         
         </Row>
         <Row className="front-page-container-row">
-            <Col className="front-page-container-col">
+            <Col className="front-page-container-col" lg={6} md={6} sm={12} xs={12}>
               <div id="front-page-welcome-message">
                 {logoutMessage==="goodbye" ? <h3 className="text-primary">You've been signed out. Thanks for playing</h3>:
                 <h3 className="text-primary">Welcome to Sean's trivia game</h3>
                 }
               </div>
             </Col>
-            <Col className="front-page-container-col">
+            <Col className="front-page-container-col" lg={6} md={6} sm={12} xs={12}>
             <Card bg = {'light'} className="front-page-card" text = {"secondary"} >
               <Card.Body>
                 {!registerView ? <LoginForm setRegisterView = {setRegisterView}/> : 

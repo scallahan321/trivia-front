@@ -17,10 +17,10 @@ function StatsDetail(props) {
                     <td>
                         {item.label}
                     </td>
-                    <td>
+                    <td style={{textAlign:'center'}}>
                         {item.attempted}
                     </td>
-                    <td>
+                    <td style={{textAlign:'center'}}>
                         {item.correct}
                     </td>
                 </tr>

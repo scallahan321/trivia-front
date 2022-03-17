@@ -22,7 +22,7 @@ function DisplayGame(props){
                       <h5 className='question-prompt'>{props.questions[props.current].question}</h5>
                     </Row>
                     <Row id='answer-button-top-row'>
-                      <Col className='answer-button-col'>
+                      <Col className='answer-button-col' lg={6} md={6} sm={12} xs={12}>
                         <Button 
                           className='answer-button'
                           variant='outline-primary'
@@ -31,7 +31,7 @@ function DisplayGame(props){
                           {props.questions[props.current].one}
                         </Button>
                       </Col>
-                      <Col className='answer-button-col'>
+                      <Col className='answer-button-col' lg={6} md={6} sm={12} xs={12}>
                         <Button 
                             className='answer-button'
                             variant="outline-primary" 
@@ -42,7 +42,7 @@ function DisplayGame(props){
                       </Col>
                     </Row>
                     <Row id='answer-button-bottom-row'>
-                      <Col className='answer-button-col'>
+                      <Col className='answer-button-col' lg={6} md={6} sm={12} xs={12}>
                         <Button 
                             className='answer-button'
                             variant="outline-primary" 
@@ -51,7 +51,7 @@ function DisplayGame(props){
                             {props.questions[props.current].three}
                         </Button>
                       </Col>
-                      <Col className='answer-button-col'>
+                      <Col className='answer-button-col' lg={6} md={6} sm={12} xs={12}>
                         <Button 
                             className='answer-button'
                             variant="outline-primary" 

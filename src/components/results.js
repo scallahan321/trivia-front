@@ -25,7 +25,7 @@ function Results(props) {
          console.log(error);
       });
     }
-
+3
     useEffect(() => {
         putRequest()
     })

@@ -32,19 +32,19 @@ function UserProfile() {
         </Row>
         <Row>
           <Col lg={4} md={4} sm={12} xs={12}>
-            <Card bg = {'light'} className="stats-card" text = {"secondary"} >
-              <Card.Body>
-                <PartialStats />
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col lg={4} md={4} sm={12} xs={12}>
             <Card bg = {'light'} className="game-setup-card" text = {"secondary"} >
                   <Card.Body>
                   <h2 style={{textAlign:'center', marginBottom:'2rem'}}> <strong>Play Trivia</strong></h2>
                     <GameSetup />
                   </Card.Body>
               </Card>
+          </Col>
+          <Col lg={4} md={4} sm={12} xs={12}>
+            <Card bg = {'light'} className="stats-card" text = {"secondary"} >
+              <Card.Body>
+                <PartialStats />
+              </Card.Body>
+            </Card>
           </Col>
           <Col lg={4} md={4} sm={12} xs={12}>
             <Card bg = {'light'} className="leaderboard-card" text = {"secondary"} >

@@ -62,8 +62,11 @@
 }
 
 .front-page-card {
+  display:block;
   width: 24rem;
   height: 28rem;
+  margin-right: auto;
+  margin-left: auto;
   border-radius: 8px;
   box-shadow: 1px 1px #D3D3D3;
 }
@@ -86,24 +89,27 @@
   height: 22rem;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 2rem;
   border-radius: 8px;
   box-shadow: 1.5px 1.5px #D3D3D3;
 }
 
 .stats-card {
-  width: 18rem;
+  width: 20rem;
   height: 22rem;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 2rem;
   border-radius: 8px;
   box-shadow: 1.5px 1.5px #D3D3D3;
 }
 
 .game-setup-card {
   width: 20rem;
-  height: 16rem;
+  height: 22rem;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 2rem;
   border-radius: 8px;
   box-shadow: 1.5px 1.5px #D3D3D3;
 }
