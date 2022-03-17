@@ -44,11 +44,11 @@ function RegisterForm(props) {
         initialValues={initialValues}
         validationSchema={registerSchema}
         onSubmit={(values) => {
-          const url = "localhost:8000/register"
+          const url = "http://localhost:8000/register"
           axios.post(url, values).then
           ((response) => {
             if (response.status === 201){
-                const url = "localhost:8000/api-token-auth/";
+                const url = "http://localhost:8000/api-token-auth/";
                 axios.post(url, values).then((response) => {
                 sessionStorage.setItem("username", values.username);
                 sessionStorage.setItem("token", response.data.token);

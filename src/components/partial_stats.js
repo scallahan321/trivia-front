@@ -109,7 +109,7 @@ function PartialStats() {
     useEffect( () => {
             setIsLoading(true)
             const token = sessionStorage.getItem('token')
-            const url = "localhost:8000/viewuserstats"
+            const url = "http://localhost:8000/viewuserstats"
             const headers = {"Authorization": ""}
             headers.Authorization = "Token ".concat(token)
             axios.get(url, {headers})

@@ -17,7 +17,7 @@ function Results(props) {
     const stats = {'questions_attempted': 10, 'correct_answers': props.numCorrect, 'category': parseInt(props.category,10)}
 
     function putRequest() {
-        axios.put('localhost:8000/updatestats', stats, {headers})
+        axios.put('http://localhost:8000/updatestats', stats, {headers})
        .then(function (response) {
           //console.log(response);
        })
@@ -25,7 +25,7 @@ function Results(props) {
          console.log(error);
       });
     }
-3
+
     useEffect(() => {
         putRequest()
     })
