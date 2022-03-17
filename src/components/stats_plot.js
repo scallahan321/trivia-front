@@ -30,7 +30,11 @@ function StatsPlot(props) {
                         color: '#262626',
                         }},
                 xaxis: {showgrid:false},
-                yaxis: {showgrid:false, tick0:0, dtick:10, nticks:100},
+                // yaxis: {showgrid:false, tick0:0, dtick:10, nticks:10},
+                yaxis: {
+                    showgrid:false, 
+                    tickvals: [10,20,30,40,50,60,70,80,90,100]
+                },
                 margin: {pad:10}
             }}
             useResizeHandler
