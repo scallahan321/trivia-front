@@ -222,6 +222,7 @@ tr:nth-child(even) {
   border: 1px solid #E8E8E8;
   margin-top: 1.5%;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   margin-right: auto;
   margin-left: auto;
   height: 53%;
