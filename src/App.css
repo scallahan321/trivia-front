@@ -62,8 +62,10 @@
 
 .front-page-card {
   display:block;
-  width: 24rem;
-  height: 28rem;
+  /* width: 24rem;
+  height: 28rem; */
+  width: 60%;
+  height: 100%;
   margin-right: auto;
   margin-left: auto;
   border-radius: 8px;
