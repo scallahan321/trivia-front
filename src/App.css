@@ -247,10 +247,10 @@ tr:nth-child(even) {
 
 
 .answer-button {
-  font-size: 1vw;
+  font-size: 2vw;
   border-width: 1px;
   display:block;
   margin: auto;
-  width: 50%;
+  width: 70%;
   height: 80%;
 }

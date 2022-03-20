@@ -18,7 +18,7 @@ function DisplayGame(props){
           <Card bg = {'light'} className="game-card" text = {"secondary"} >
             <Container style={{height: '100%'}}>
               <Row>
-                <p className='question-prompt'>{props.questions[props.current].question}&nbsp; ({props.current}/10)</p>
+                <p className='question-prompt'>{props.questions[props.current].question}&nbsp; ({props.current+1}/10)</p>
               </Row>
               <Row style={{height:'40%'}}>
                 <Col  lg={6} md={6} sm={12} xs={12} > 
