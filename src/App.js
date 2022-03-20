@@ -7,7 +7,7 @@ import FrontPage from './components/front_page';
 import Logout from './components/logout';
 import UserProfile from './components/user_profile';
 import FullStats from './components/full_stats';
-import Container from 'react-bootstrap/Container';
+
 
 function App(){
 
