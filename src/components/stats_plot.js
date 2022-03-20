@@ -18,28 +18,30 @@ function StatsPlot(props) {
       ]
 
     return (
-        <Plot 
-            data={data} 
-            layout={{
-                autosize: true, 
-                title: {
-                    text: 'Percent Correct',
-                    font: {
-                        family: 'Helvetica Neue',
-                        size: 26,
-                        color: '#262626',
-                        }},
-                xaxis: {showgrid:false},
-                // yaxis: {showgrid:false, tick0:0, dtick:10, nticks:10},
-                yaxis: {
-                    showgrid:false, 
-                    tickvals: [10,20,30,40,50,60,70,80,90,100]
-                },
-                margin: {pad:10}
-            }}
-            useResizeHandler
-            className="stats-plot"
-        />
+        <div style={{height:'100%', width:'100%'}}>
+            <Plot 
+                data={data} 
+                layout={{
+                    autosize: true, 
+                    title: {
+                        text: 'Percent Correct',
+                        font: {
+                            family: 'Helvetica Neue',
+                            size: 26,
+                            color: '#262626',
+                            }},
+                    xaxis: {showgrid:false},
+                    yaxis: {
+                        showgrid:false, 
+                        tickvals: [10,20,30,40,50,60,70,80,90,100]
+                    },
+                    margin: {pad:10}
+                }}
+                useResizeHandler
+                className="stats-plot"
+            />
+        </div>
+       
     )
   }
 

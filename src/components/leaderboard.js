@@ -75,9 +75,6 @@ function Leaderboard() {
                         <li className='leaderboard-list'>{leaders[0].username}:&nbsp;<strong>{toPercent(leaders[0].percent)}</strong></li>
                         <li className='leaderboard-list'>{leaders[1].username}:&nbsp;<strong>{toPercent(leaders[1].percent)}</strong></li>
                         <li className='leaderboard-list'>{leaders[2].username}:&nbsp;<strong>{toPercent(leaders[2].percent)}</strong></li>
-                        <li className='leaderboard-list'>{leaders[3].username}:&nbsp;<strong>{toPercent(leaders[3].percent)}</strong></li>
-                        <li className='leaderboard-list'>{leaders[4].username}:&nbsp;<strong>{toPercent(leaders[4].percent)}</strong></li>
-                        
                     </ol>
                 </div>
             }
