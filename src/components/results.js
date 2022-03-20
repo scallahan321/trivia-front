@@ -60,25 +60,32 @@ function Results(props) {
           <Row>
             <Navbar />
           </Row>
-          <Row >
-            <Card className = "game-card" bg = {'light'} text = {"secondary"} >
-                  <Card.Body>
-                    <h2 style={{marginTop: '1rem', textAlign:'center'}}>You scored {props.numCorrect}/10</h2>
-                    <p className='text-primary' style={{ marginTop:'2rem', textAlign:'center'}}>Scroll down to view your results</p>
+          <Row style={{height:'90%'}}>
+            <Card className = "game-card" bg = {'light'} text = {"secondary"}>
+                  {/* <Card.Body> */}
+                    <div style={{height: '10%', marginTop:'2.5%'}}>
+                      <h2 style={{textAlign:'center'}}>You scored {props.numCorrect}/10</h2>
+                    </div>
+                    <div style={{height: '8%', paddingTop: '2%'}}>
+                      <p className='text-primary' style={{textAlign:'center'}}>Scroll down to view your results</p>
+                    </div>
                     <div id="result-container">
-                      {/* <DetailResults results={props.results}/> */}
+                      
                       <ul style={{listStyleType:'none'}}>
                         {props.results.map((item) => listResults(item))}
                       </ul>
                     </div>
-                    <Button  
-                      style = {{display:'block', width:'50%', marginTop:'3rem', marginRight:'auto', marginLeft: 'auto'}}
-                      size="lg" 
-                      variant="primary" 
-                      onClick = {() => navigate('/home')}>
-                      Return home 
-                    </Button> 
-                  </Card.Body>
+                    <div style={{height: '15%', marginTop:'2.5%', marginBottom:'2.5%',paddingTop:'1%'}}>
+                      <Button  
+                        style = {{display:'block', width:'50%', marginRight:'auto', marginLeft: 'auto', height:'85%',fontsize:'1.5vw'}}
+                        size="lg" 
+                        variant="primary" 
+                        onClick = {() => navigate('/home')}>
+                        Return home 
+                      </Button> 
+                    </div>
+                    
+                  {/* </Card.Body> */}
             </Card>
           </Row>
         </Container>

@@ -5,7 +5,7 @@ import React from 'react';
 function StatsDetail(props) {
 
     return (
-        <div>
+        <div style={{height:'100%', width:'100%'}}>
             <table>
                 <tr style={{marginBottom:'1.5rem'}}>
                     <th>Category</th>

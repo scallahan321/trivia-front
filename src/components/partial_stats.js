@@ -136,10 +136,11 @@ function PartialStats() {
                     {newUser ? <p className="stats-message-visible">Play some rounds first!</p> :
                         <div>
                             <div style={{textAlign: 'center'}}>
+                                <p>Best category: <strong>{best}</strong></p>
                                 <p>Questions answered: <strong>{stats.questions_attempted}</strong></p>
                                 <p>Correct answers: <strong>{stats.correct_answers}</strong></p>
                                 <p>Percent correct: <strong>{percent_correct_all}</strong></p>
-                                <p>Best category: <strong>{best}</strong></p>
+                                
                             </div>
                             <Button  
                                 style = {{display:'block', width:'62%', marginTop:'2rem', marginRight:'auto', marginLeft: 'auto'}}
