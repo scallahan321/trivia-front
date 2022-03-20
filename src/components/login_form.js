@@ -60,7 +60,7 @@ function LoginForm(props) {
               <Form className="form-component">
                 <div className="form-row">
                   <Field
-                    style={{ position: 'relative', height: '2.5rem', width: '15rem', marginRight: 'auto', marginLeft: 'auto' }}
+                    style={{ position: 'relative', height: '2.5rem', width: '80%', marginRight: 'auto', marginLeft: 'auto' }}
                     type="username"
                     name="username"
                     placeholder="Username"
@@ -71,7 +71,7 @@ function LoginForm(props) {
                 </div>
                 <div className="form-row">
                   <Field
-                    style={{ position: 'relative', height: "2.5rem", width: '15rem', marginRight: 'auto', marginLeft: 'auto' }}
+                    style={{ position: 'relative', height: "2.5rem", width: '80%', marginRight: 'auto', marginLeft: 'auto' }}
                     type="password"
                     name="password"
                     placeholder="Password"
